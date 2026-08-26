@@ -1,0 +1,251 @@
+@layer components {
+  .hero {
+    padding-block: var(--space-4) var(--space-5);
+
+    /*
+      Крути только эти 10 строк — они действуют сразу.
+      x / y / rotate надписи видны от ширины окна ~1024px (блок на фото).
+    */
+    --offer-x: 52%;
+    --offer-y: 48%;
+    --offer-rotate: 4deg;
+    --offer-size: 2.45rem;
+    --offer-color: var(--color-gold);
+    --arrow-w: 9.25rem;
+    --arrow-stroke: 4.2;
+    --arrow-x: -4.75rem;
+    --arrow-y: 0.1rem;
+    --arrow-rotate: -18deg;
+  }
+
+  .hero-grid {
+    display: grid;
+    gap: var(--space-5);
+    align-items: center;
+  }
+
+  .hero h1 {
+    font-size: var(--step-3);
+    max-width: 16ch;
+  }
+
+  .hero-license {
+    margin-top: var(--space-3);
+    color: var(--color-muted);
+    font-size: var(--step--1);
+    max-width: none;
+  }
+
+  .hero .checks {
+    margin-top: var(--space-4);
+    max-width: 28rem;
+  }
+
+  .hero-price {
+    margin-top: var(--space-4);
+    font-size: var(--step-2);
+    font-weight: 700;
+    color: var(--color-gold);
+  }
+
+  .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: var(--space-4);
+  }
+
+  .hero-copy {
+    z-index: 1;
+  }
+
+  .hero-form {
+    margin-top: var(--space-4);
+  }
+
+  .hero-offer {
+    display: grid;
+    justify-items: start;
+    gap: 0.05rem;
+    margin: 0 0 0.35rem;
+    color: var(--offer-color);
+    font-family: var(--font-hand);
+    font-size: var(--offer-size);
+    font-weight: 700;
+    line-height: 0.95;
+    max-width: 12.5rem;
+    filter:
+      drop-shadow(0 0 0.28rem oklch(1 0 0 / 0.92))
+      drop-shadow(0 0.06rem 0.12rem oklch(1 0 0 / 0.55));
+  }
+
+  .hero-offer-text b {
+    font-size: 1.42em;
+    font-weight: 700;
+  }
+
+  .hero-offer-arrow {
+    width: var(--arrow-w);
+    height: auto;
+    margin-inline-start: var(--arrow-x);
+    margin-block-start: var(--arrow-y);
+    rotate: var(--arrow-rotate);
+    overflow: visible;
+  }
+
+  .hero-offer-arrow path {
+    stroke: currentColor;
+    stroke-width: var(--arrow-stroke);
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  .hero-copy .form-box {
+    margin-top: 0;
+  }
+
+  .hero-visual {
+    margin: 0;
+    min-height: 18rem;
+    border-radius: 1.15rem;
+    overflow: hidden;
+    background: var(--color-shot);
+    box-shadow:
+      0 0.15rem 0.4rem oklch(0.3 0.04 155 / 0.08),
+      0 1.4rem 2.8rem oklch(0.32 0.05 155 / 0.16);
+  }
+
+  .hero-visual img {
+    width: 100%;
+    height: 18rem;
+    object-fit: cover;
+    object-position: 78% 50%;
+  }
+
+  @media (max-width: 63.99rem) {
+    .hero {
+      position: relative;
+      isolation: isolate;
+      color: oklch(0.96 0.012 150);
+      background: oklch(0.16 0.03 155);
+      padding-block: var(--space-5) var(--space-6);
+    }
+
+    .hero-copy {
+      display: grid;
+      gap: clamp(1.35rem, 3.6vh, 2.4rem);
+    }
+
+    .hero h1 {
+      color: oklch(0.99 0.01 150);
+      max-width: 14ch;
+    }
+
+    .hero-license,
+    .hero .checks,
+    .hero-price,
+    .hero-actions,
+    .hero-form {
+      margin-top: 0;
+    }
+
+    .hero-license {
+      color: oklch(0.86 0.03 150);
+    }
+
+    .hero .checks {
+      gap: 0.95rem;
+      max-width: none;
+    }
+
+    .hero-price {
+      width: fit-content;
+      margin: 0;
+      padding: 0.12em 0.45em 0.14em;
+      background: var(--color-gold);
+      color: var(--color-accent-fg);
+    }
+
+    .hero .btn-ghost {
+      background: var(--color-gold);
+      border-color: var(--color-gold);
+      color: var(--color-accent-fg);
+    }
+
+    .hero .btn-ghost:hover {
+      background: color-mix(in oklab, var(--color-gold) 86%, black);
+      border-color: color-mix(in oklab, var(--color-gold) 86%, black);
+      color: var(--color-accent-fg);
+    }
+
+    .hero .field label,
+    .hero .form-note {
+      color: oklch(0.86 0.025 150);
+    }
+
+    .hero .form-note a {
+      color: oklch(0.99 0.01 150);
+    }
+
+    .hero-offer {
+      display: none;
+    }
+
+    .hero-visual {
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      min-height: 0;
+      border-radius: 0;
+      box-shadow: none;
+    }
+
+    .hero-visual img {
+      height: 100%;
+      min-height: 100%;
+    }
+
+    .hero-visual::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(
+          180deg,
+          oklch(0.14 0.03 155 / 0.58) 0%,
+          oklch(0.1 0.03 155 / 0.78) 100%
+        );
+    }
+  }
+
+  @media (min-width: 64rem) {
+    .hero-grid {
+      position: relative;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr);
+      min-height: 28rem;
+      gap: var(--space-5);
+      align-items: stretch;
+    }
+
+    .hero-visual {
+      min-height: 28rem;
+    }
+
+    .hero-visual img {
+      height: 100%;
+      min-height: 28rem;
+    }
+
+    .hero-offer {
+      position: absolute;
+      left: var(--offer-x);
+      top: var(--offer-y);
+      margin: 0;
+      width: 13rem;
+      max-width: none;
+      rotate: var(--offer-rotate);
+      pointer-events: none;
+      z-index: 2;
+    }
+  }
+}

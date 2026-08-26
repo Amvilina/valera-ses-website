@@ -1,0 +1,99 @@
+@layer components {
+  .process {
+    position: relative;
+    isolation: isolate;
+    padding-block: var(--space-5);
+    color: oklch(0.96 0.01 150);
+    background: oklch(0.18 0.03 155);
+  }
+
+  .process-bg {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    overflow: hidden;
+  }
+
+  .process-bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 55% 40%;
+  }
+
+  .process-bg::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(
+        180deg,
+        oklch(0.14 0.03 155 / 0.58) 0%,
+        oklch(0.12 0.03 155 / 0.72) 100%
+      );
+  }
+
+  .process-copy .section-kicker {
+    color: color-mix(in oklab, var(--color-gold) 42%, white);
+  }
+
+  .process-copy h2 {
+    color: oklch(0.98 0.01 150);
+    margin-bottom: var(--space-4);
+  }
+
+  .process-copy h2::after {
+    background:
+      linear-gradient(
+        90deg,
+        color-mix(in oklab, var(--color-gold) 40%, white) 0 2.5rem,
+        transparent 2.5rem 2.75rem,
+        oklch(0.94 0.02 150) 2.75rem 3.85rem,
+        transparent 3.85rem 4.1rem,
+        color-mix(in oklab, var(--color-gold) 40%, white) 4.1rem 5.4rem
+      );
+  }
+
+  .process-list {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    gap: var(--space-4);
+  }
+
+  .process-list li {
+    display: grid;
+    grid-template-columns: 2.4rem 1fr;
+    gap: var(--space-3);
+    align-items: start;
+  }
+
+  .process-num {
+    font-size: var(--step-1);
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    color: color-mix(in oklab, var(--color-gold) 45%, white);
+    line-height: 1.4;
+  }
+
+  .process-list h3 {
+    font-family: var(--font-body);
+    font-size: var(--step-1);
+    font-weight: 700;
+    color: oklch(0.99 0.01 150);
+    margin-bottom: 0.4rem;
+  }
+
+  .process-list p {
+    color: oklch(0.94 0.015 150);
+    font-size: var(--step-1);
+    font-weight: 500;
+    max-width: 36rem;
+  }
+
+  @media (min-width: 60rem) {
+    .process-list {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+}

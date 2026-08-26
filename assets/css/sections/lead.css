@@ -1,0 +1,55 @@
+@layer components {
+  .lead {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    padding-block: var(--space-5);
+    background: var(--color-gold-soft);
+    border-block: 1px solid color-mix(in oklab, var(--color-gold) 32%, var(--color-border));
+  }
+
+  .lead::before {
+    content: "10%";
+    position: absolute;
+    inset-inline-end: max(0.5rem, 4vw);
+    inset-block-start: 50%;
+    z-index: -1;
+    translate: 0 -50%;
+    font-size: clamp(6rem, 18vw, 12rem);
+    font-weight: 700;
+    line-height: 0.8;
+    letter-spacing: -0.06em;
+    color: color-mix(in oklab, var(--color-gold) 28%, transparent);
+    pointer-events: none;
+    user-select: none;
+  }
+
+  .lead-grid {
+    display: grid;
+    gap: var(--space-4);
+  }
+
+  .lead h2 {
+    max-width: 18ch;
+  }
+
+  .lead-off {
+    display: inline-block;
+    padding: 0.05em 0.38em;
+    margin-inline-start: 0.1em;
+    border-radius: var(--radius-s);
+    background: var(--color-gold);
+    color: var(--color-gold-fg);
+  }
+
+  .lead .form-box {
+    max-width: none;
+  }
+
+  @media (min-width: 56rem) {
+    .lead-grid {
+      grid-template-columns: 1fr 1.25fr;
+      align-items: start;
+    }
+  }
+}

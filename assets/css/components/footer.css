@@ -1,0 +1,30 @@
+@layer components {
+  .site-footer {
+    padding-block: var(--space-5);
+    border-top: 1px solid color-mix(in oklab, var(--color-gold) 38%, var(--color-border));
+  }
+
+  .site-footer .wrap {
+    display: flex;
+    justify-content: space-between;
+    gap: var(--space-3);
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .site-footer p {
+    max-width: none;
+    color: var(--color-muted);
+    font-size: var(--step--1);
+  }
+
+  .site-footer a {
+    color: var(--color-gold);
+    text-decoration: none;
+    font-weight: 600;
+  }
+
+  .site-footer .site-logo img {
+    height: 2.4rem;
+  }
+}

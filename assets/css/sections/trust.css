@@ -1,0 +1,51 @@
+@layer components {
+  .trust {
+    padding-block: var(--space-4);
+    background: transparent;
+  }
+
+  .trust-list {
+    position: relative;
+    display: grid;
+    gap: var(--space-4);
+    align-items: center;
+    padding-block: 1.15rem;
+  }
+
+  .trust-list::before,
+  .trust-list::after {
+    content: "";
+    position: absolute;
+    inset-inline: 0;
+    height: 1px;
+    background: color-mix(in oklab, var(--color-gold) 48%, var(--color-border));
+  }
+
+  .trust-list::before {
+    top: 0;
+  }
+
+  .trust-list::after {
+    bottom: 0;
+  }
+
+  .trust-list.checks li {
+    font-weight: 600;
+    align-items: center;
+  }
+
+  .trust-list.checks li::before {
+    margin-top: 0;
+  }
+
+  @media (min-width: 56rem) {
+    .trust-list {
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    .trust-list.checks li:not(:last-child) {
+      border-inline-end: 1px solid color-mix(in oklab, var(--color-gold) 40%, var(--color-border));
+      padding-inline-end: var(--space-4);
+    }
+  }
+}

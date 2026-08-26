@@ -1,0 +1,62 @@
+@layer components {
+  .modal {
+    position: relative;
+    width: min(100% - 2rem, 24rem);
+    padding: var(--space-4);
+    border: 0;
+    border-radius: 1rem;
+    background: var(--color-surface);
+    color: var(--color-fg);
+    box-shadow: 0 1.5rem 3rem oklch(0.28 0.04 155 / 0.22);
+  }
+
+  .modal::backdrop {
+    background: oklch(0.22 0.03 155 / 0.48);
+  }
+
+  .modal h2 {
+    font-size: var(--step-2);
+    padding-inline-end: 2rem;
+  }
+
+  .modal-lead {
+    margin-top: 0.4rem;
+    margin-bottom: 0.75rem;
+    color: var(--color-muted);
+    max-width: none;
+  }
+
+  .modal form {
+    display: grid;
+    gap: 0.9rem;
+  }
+
+  .modal .form-box {
+    max-width: none;
+  }
+
+  .modal .btn {
+    width: 100%;
+  }
+
+  .modal-close {
+    position: absolute;
+    top: 0.85rem;
+    right: 0.85rem;
+    width: 2rem;
+    height: 2rem;
+    color: var(--color-muted);
+  }
+
+  .modal-close::before {
+    content: "×";
+    font-size: 1.5rem;
+    line-height: 1;
+  }
+
+  .modal[open] {
+    position: fixed;
+    inset: 0;
+    margin: auto;
+  }
+}

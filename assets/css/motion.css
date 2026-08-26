@@ -1,0 +1,8 @@
+@layer motion {
+  .btn,
+  .field input {
+    transition: background-color var(--duration-fast) var(--ease-out),
+      border-color var(--duration-fast) var(--ease-out),
+      color var(--duration-fast) var(--ease-out);
+  }
+}

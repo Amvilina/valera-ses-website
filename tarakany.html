@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Уничтожение тараканов с гарантией в Москве и области</title>
+    <meta name="description" content="Дезинсекция от тараканов с гарантией в договоре. Цена известна заранее. Выезд от 30–60 минут.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+    <!--
+      Ассеты — клади файлы с этими именами в assets/img/
+      logo.webp
+      hero.webp
+      process.webp
+    -->
+
+    <header class="site-header">
+        <div class="wrap">
+            <a class="site-logo" href="index.html">
+                <img src="assets/img/logo.webp" alt="СЭС" width="133" height="99">
+                <span>СЭС</span>
+            </a>
+            <input class="nav-check visually-hidden" id="nav-on" type="checkbox">
+            <div class="header-end">
+                <div class="header-meta">
+                    <p class="header-city">Москва</p>
+                    <p class="header-hours">Работаем 24/7</p>
+                </div>
+                <a class="header-phone" href="tel:+74959759702">+7 (495) 975-97-02</a>
+                <a class="btn btn-primary" href="#call" data-open-modal>Вызвать специалиста</a>
+            </div>
+            <label class="nav-burger" for="nav-on">
+                <span class="visually-hidden">Меню</span>
+                <span class="nav-burger-icon" aria-hidden="true"></span>
+            </label>
+            <div class="nav-modal">
+                <label class="nav-modal-dismiss" for="nav-on">
+                    <span class="visually-hidden">Закрыть меню</span>
+                </label>
+                <div class="nav-modal-card">
+                    <nav class="site-nav" aria-label="Разделы">
+                        <a href="#services">Услуги</a>
+                        <a href="#price">Цены</a>
+                        <a href="#why">Преимущества</a>
+                        <a href="#process">Как работаем</a>
+                        <a href="#faq">FAQ</a>
+                        <a href="#contacts">Контакты</a>
+                    </nav>
+                    <div class="nav-modal-end">
+                        <p class="header-hours">Работаем 24/7</p>
+                        <a class="header-phone" href="tel:+74959759702">+7 (495) 975-97-02</a>
+                        <a class="btn btn-primary" href="#call" data-open-modal>Вызвать специалиста</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main id="content">
+        <section class="hero">
+            <div class="wrap hero-grid">
+                <div class="hero-copy">
+                    <h1>Уничтожение тараканов с гарантией в Москве и области</h1>
+                    <p class="hero-license">Лицензия ЕРУЛ № 71.01.14.001.Л.000081.02.25</p>
+                    <ul class="checks" role="list">
+                        <li>1 год гарантии прописан в договоре</li>
+                        <li>Соответствует правилам СанПиН</li>
+                        <li>Работаем без запаха и следов</li>
+                        <li>Длительная защита от повторного появления</li>
+                    </ul>
+                    <p class="hero-price">от 1 500 ₽</p>
+                    <div class="hero-actions">
+                        <a class="btn btn-primary" href="#call" data-open-modal>Вызвать специалиста</a>
+                        <a class="btn btn-ghost" href="#call" data-open-modal>Получить скидку</a>
+                    </div>
+                    <div class="hero-form">
+                    <p class="hero-offer">
+                        <span class="hero-offer-text"><b>10%</b> скидка при заказе онлайн</span>
+                        <svg class="hero-offer-arrow" viewBox="0 0 160 136" fill="none" aria-hidden="true">
+                            <path d="M148 16c-18-6-52 2-78 28-18 18-34 42-46 78"/>
+                            <path d="M6 94 24 122 52 102"/>
+                        </svg>
+                    </p>
+                    <div class="form-box">
+                        <form action="#" method="post" novalidate>
+                            <div class="form-row is-phone">
+                                <div class="field">
+                                    <label for="hero-phone">Номер телефона</label>
+                                    <input id="hero-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="+7 (___) ___-__-__" required>
+                                </div>
+                                <button class="btn btn-primary" type="submit">Отправить заявку</button>
+                            </div>
+                            <p class="form-error" hidden></p>
+                            <p class="form-note">Нажимая кнопку, вы соглашаетесь с <a href="#privacy">политикой конфиденциальности</a></p>
+                        </form>
+                        <p class="form-done" hidden>Заявка принята. Перезвоним согласовать время.</p>
+                    </div>
+                    </div>
+                </div>
+                <figure class="hero-visual">
+                    <img src="assets/img/hero.webp" alt="Специалист обрабатывает кухню" width="1672" height="941" fetchpriority="high">
+                </figure>
+            </div>
+        </section>
+
+        <section class="trust" aria-label="Коротко">
+            <ul class="trust-list checks wrap" role="list">
+                <li>Выезд от 30–60 минут</li>
+                <li>Безопасно для людей и животных</li>
+                <li>Безопасная обработка</li>
+                <li>Цена известна заранее</li>
+            </ul>
+        </section>
+
+        <section class="section" id="services" data-mark="Цены">
+            <div class="wrap">
+                <div class="section-head">
+                    <p class="section-kicker">Прайс</p>
+                    <h2>Сколько стоит обработка?</h2>
+                    <p>Вы заранее знаете стоимость работ. Цена зависит от площади помещения, степени заражения и выбранного метода обработки.</p>
+                </div>
+                <div class="price-board" id="price">
+                    <article class="price-row mark-frame">
+                        <h3>Студия / 1-комнатная квартира</h3>
+                        <p class="method">Холодный туман + барьер</p>
+                        <p class="amount">от 4 000 ₽</p>
+                        <ul class="checks" role="list">
+                            <li>Холодный туман + барьер</li>
+                            <li>для жилых помещений</li>
+                        </ul>
+                        <a class="btn btn-ghost" href="#call" data-open-modal data-plan="Студия / 1-комнатная квартира">Заказать</a>
+                    </article>
+                    <article class="price-row mark-frame">
+                        <h3>2-комнатная квартира</h3>
+                        <p class="method">Холодный туман</p>
+                        <p class="amount">от 4 500 ₽</p>
+                        <ul class="checks" role="list">
+                            <li>Холодный туман</li>
+                            <li>кухня, санузлы, плинтусы</li>
+                        </ul>
+                        <a class="btn btn-ghost" href="#call" data-open-modal data-plan="2-комнатная квартира">Заказать</a>
+                    </article>
+                    <article class="price-row mark-frame">
+                        <h3>3-комнатная квартира</h3>
+                        <p class="method">Комплексная обработка</p>
+                        <p class="amount">от 5 000 ₽</p>
+                        <ul class="checks" role="list">
+                            <li>Комплексная обработка</li>
+                            <li>несколько зон заражения</li>
+                        </ul>
+                        <a class="btn btn-ghost" href="#call" data-open-modal data-plan="3-комнатная квартира">Заказать</a>
+                    </article>
+                    <article class="price-row mark-frame">
+                        <h3>Частный дом</h3>
+                        <p class="method">Туман + локальная обработка</p>
+                        <p class="amount">от 5 500 ₽</p>
+                        <ul class="checks" role="list">
+                            <li>Туман + локальная обработка</li>
+                            <li>площадь и этажность по расчёту</li>
+                        </ul>
+                        <a class="btn btn-ghost" href="#call" data-open-modal data-plan="Частный дом">Заказать</a>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="certs">
+            <div class="wrap">
+                <div class="section-head">
+                    <p class="section-kicker">Документы</p>
+                    <h2>Сертификаты на препараты</h2>
+                </div>
+                <div class="certs-carousel">
+                    <button class="certs-arrow is-prev" type="button" aria-label="Назад">‹</button>
+                    <div class="certs-track">
+                        <button class="certs-item" type="button" data-cert-src="assets/img/certs/01-cigatrin.webp">
+                            <img src="assets/img/certs/01-cigatrin.webp" alt="Свидетельство: Цигатрин" width="1221" height="1680" loading="lazy">
+                        </button>
+                        <button class="certs-item" type="button" data-cert-src="assets/img/certs/02-solfac-ew50.webp">
+                            <img src="assets/img/certs/02-solfac-ew50.webp" alt="Свидетельство: Сольфак EW 50" width="1187" height="1680" loading="lazy">
+                        </button>
+                        <button class="certs-item" type="button" data-cert-src="assets/img/certs/03-bac-2017.webp">
+                            <img src="assets/img/certs/03-bac-2017.webp" alt="Свидетельство о государственной регистрации, 2017" width="1180" height="1680" loading="lazy">
+                        </button>
+                        <button class="certs-item" type="button" data-cert-src="assets/img/certs/04-sv-2012.webp">
+                            <img src="assets/img/certs/04-sv-2012.webp" alt="Свидетельство о государственной регистрации, 2012" width="1197" height="1680" loading="lazy">
+                        </button>
+                        <button class="certs-item" type="button" data-cert-src="assets/img/certs/05-scan.webp">
+                            <img src="assets/img/certs/05-scan.webp" alt="Свидетельство: Циперметрин 25" width="744" height="1024" loading="lazy">
+                        </button>
+                        <button class="certs-item" type="button" data-cert-src="assets/img/certs/06-agran.webp">
+                            <img src="assets/img/certs/06-agran.webp" alt="Свидетельство: Агран" width="1187" height="1680" loading="lazy">
+                        </button>
+                        <button class="certs-item" type="button" data-cert-src="assets/img/certs/07-acetin-super.webp">
+                            <img src="assets/img/certs/07-acetin-super.webp" alt="Свидетельство: Ацетин Супер КЭ" width="1188" height="1680" loading="lazy">
+                        </button>
+                        <button class="certs-item" type="button" data-cert-src="assets/img/certs/08-titan.webp">
+                            <img src="assets/img/certs/08-titan.webp" alt="Свидетельство: Титан" width="1226" height="1680" loading="lazy">
+                        </button>
+                        <button class="certs-item" type="button" data-cert-src="assets/img/certs/09-imidin-forte.webp">
+                            <img src="assets/img/certs/09-imidin-forte.webp" alt="Свидетельство: Имидин Фортэ" width="1177" height="1680" loading="lazy">
+                        </button>
+                        <button class="certs-item" type="button" data-cert-src="assets/img/certs/10-solfac-duo.webp">
+                            <img src="assets/img/certs/10-solfac-duo.webp" alt="Свидетельство: Сольфак Дуо СК 7,5%" width="1187" height="1679" loading="lazy">
+                        </button>
+                        <button class="certs-item" type="button" data-cert-src="assets/img/certs/11-k-othrine.webp">
+                            <img src="assets/img/certs/11-k-othrine.webp" alt="Свидетельство: К-Отрин СК 50" width="1186" height="1680" loading="lazy">
+                        </button>
+                        <button class="certs-item" type="button" data-cert-src="assets/img/certs/12-effectiv.webp">
+                            <img src="assets/img/certs/12-effectiv.webp" alt="Свидетельство: Эффектив" width="1186" height="1680" loading="lazy">
+                        </button>
+                        <button class="certs-item" type="button" data-cert-src="assets/img/certs/13-bombei.webp">
+                            <img src="assets/img/certs/13-bombei.webp" alt="Свидетельство: Бомбей" width="1188" height="1680" loading="lazy">
+                        </button>
+                    </div>
+                    <button class="certs-arrow is-next" type="button" aria-label="Вперёд">›</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="process" id="process">
+            <div class="process-bg" aria-hidden="true">
+                <img src="assets/img/process.webp" alt="" width="1536" height="1024" loading="lazy">
+            </div>
+            <div class="wrap process-copy">
+                <p class="section-kicker">Этапы</p>
+                <h2>Как проходит обработка</h2>
+                <ol class="process-list">
+                    <li>
+                        <span class="process-num" aria-hidden="true">01</span>
+                        <div>
+                            <h3>Вы оставляете заявку</h3>
+                            <p>Уточняем тип помещения, площадь и насколько сильно распространились насекомые. Рассчитываем предварительную стоимость.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="process-num" aria-hidden="true">02</span>
+                        <div>
+                            <h3>Согласовываем цену и время</h3>
+                            <p>Заранее рассказываем, сколько будет стоить обработка, как подготовить помещение и когда сможет приехать специалист.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="process-num" aria-hidden="true">03</span>
+                        <div>
+                            <h3>Специалист осматривает помещение</h3>
+                            <p>Определяет места скопления тараканов и возможные пути их проникновения: щели, плинтусы, вентиляцию, пространство за мебелью и техникой.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="process-num" aria-hidden="true">04</span>
+                        <div>
+                            <h3>Проводим обработку</h3>
+                            <p>Обрабатываем места скопления и передвижения насекомых, включая труднодоступные зоны. Метод обработки подбирается под конкретную ситуацию.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="process-num" aria-hidden="true">05</span>
+                        <div>
+                            <h3>Даём рекомендации</h3>
+                            <p>После обработки специалист объяснит, сколько проветривать помещение, когда можно вернуться и что необходимо сделать для профилактики.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="process-num" aria-hidden="true">06</span>
+                        <div>
+                            <h3>Предоставляем гарантию</h3>
+                            <p>Рассказываем условия гарантии и что делать, если после обработки проблема возникнет повторно.</p>
+                        </div>
+                    </li>
+                </ol>
+            </div>
+        </section>
+
+        <section class="section" id="why" data-mark="СЭС">
+            <div class="wrap">
+                <div class="section-head">
+                    <p class="section-kicker">Преимущества</p>
+                    <h2>Почему выбирают нас?</h2>
+                </div>
+                <ul class="reasons-list" role="list">
+                    <li>
+                        <div class="reasons-head">
+                            <img src="assets/img/icons/icon-price.webp" alt="" width="48" height="48">
+                            <h3>Стоимость известна заранее</h3>
+                        </div>
+                        <p>Рассчитываем и согласовываем стоимость обработки до начала работ. Без неожиданных доплат на месте.</p>
+                    </li>
+                    <li>
+                        <div class="reasons-head">
+                            <img src="assets/img/icons/icon-guarantee.webp" alt="" width="48" height="48">
+                            <h3>Гарантия на обработку</h3>
+                        </div>
+                        <p>Предоставляем гарантию на выполненные работы. Условия и срок гарантии фиксируются заранее.</p>
+                    </li>
+                    <li>
+                        <div class="reasons-head">
+                            <img src="assets/img/icons/icon-family.webp" alt="" width="48" height="48">
+                            <h3>Безопасность для семьи</h3>
+                        </div>
+                        <p>Используем профессиональные препараты и объясняем, как подготовить помещение, когда можно вернуться домой и что делать после обработки.</p>
+                    </li>
+                    <li>
+                        <div class="reasons-head">
+                            <img src="assets/img/icons/icon-treatment.webp" alt="" width="48" height="48">
+                            <h3>Профессиональная обработка</h3>
+                        </div>
+                        <p>Специалист определяет места скопления и пути проникновения тараканов, после чего подбирает подходящий способ обработки.</p>
+                    </li>
+                    <li>
+                        <div class="reasons-head">
+                            <img src="assets/img/icons/icon-corners.webp" alt="" width="48" height="48">
+                            <h3>Обрабатываем труднодоступные места</h3>
+                        </div>
+                        <p>Плинтусы, щели, пространство за мебелью и техникой, зоны возле труб и другие места, где могут скрываться насекомые.</p>
+                    </li>
+                    <li>
+                        <div class="reasons-head">
+                            <img src="assets/img/icons/icon-prevention.webp" alt="" width="48" height="48">
+                            <h3>Защита от повторного появления</h3>
+                        </div>
+                        <p>После обработки даём рекомендации по профилактике и объясняем, как снизить риск повторного появления тараканов.</p>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="lead" id="lead">
+            <div class="wrap lead-grid">
+                <h2>Заполните форму и зафиксируйте скидку <span class="lead-off">10%</span></h2>
+                <div class="form-box">
+                    <form action="#" method="post" novalidate>
+                        <div class="form-row is-lead">
+                            <div class="field">
+                                <label for="lead-name">Ваше имя</label>
+                                <input id="lead-name" name="name" type="text" autocomplete="name" placeholder="Иван Иванов" required>
+                            </div>
+                            <div class="field">
+                                <label for="lead-phone">Номер телефона</label>
+                                <input id="lead-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="+7 (___) ___-__-__" required>
+                            </div>
+                            <button class="btn btn-primary" type="submit">Отправить заявку</button>
+                        </div>
+                        <p class="form-error" hidden></p>
+                        <p class="form-note">Нажимая кнопку, вы соглашаетесь с <a href="#privacy">политикой конфиденциальности</a></p>
+                    </form>
+                    <p class="form-done" hidden>Заявка принята. Перезвоним и зафиксируем скидку.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="reviews" id="reviews" data-mark="«">
+            <div class="wrap">
+                <div class="section-head">
+                    <p class="section-kicker">Клиенты</p>
+                    <h2>Отзывы клиентов</h2>
+                </div>
+                <ul class="reviews-list" role="list">
+                    <li>
+                        <img src="assets/img/reviews/review-anna.webp" alt="" width="80" height="80">
+                        <div>
+                            <p class="reviews-name">Анна · Москва</p>
+                            <p class="reviews-meta">
+                                <span class="reviews-stars" aria-label="Оценка 5 из 5">★★★★★</span>
+                                <time datetime="2026-03-18">18 марта 2026</time>
+                            </p>
+                            <p class="reviews-text">
+                                Приехали за час, обработали кухню и санузел. Назвал цену по телефону — на месте ничего не добавили. Через пару дней тараканов не видим<label class="reviews-more"><input type="checkbox"><span class="reviews-dots">… (развернуть)</span><span class="reviews-rest"> Ещё подсказали, что прикрыть и сколько проветривать. На следующий день протёрла столы — запаха почти не было. Если появятся снова, знаю, что гарантия в договоре. <span class="reviews-hide">(скрыть)</span></span></label>
+                            </p>
+                        </div>
+                    </li>
+                    <li>
+                        <img src="assets/img/reviews/review-dmitry.webp" alt="" width="80" height="80">
+                        <div>
+                            <p class="reviews-name">Дмитрий · Химки</p>
+                            <p class="reviews-meta">
+                                <span class="reviews-stars" aria-label="Оценка 5 из 5">★★★★★</span>
+                                <time datetime="2026-05-04">4 мая 2026</time>
+                            </p>
+                            <p class="reviews-text">
+                                Специалист сразу нашёл пути у труб и плинтусов. Объяснил, сколько проветривать и когда можно вернуться с ребёнком. Работа аккуратная<label class="reviews-more"><input type="checkbox"><span class="reviews-dots">… (развернуть)</span><span class="reviews-rest"> Двушка, уложились примерно в час. Мебель не выносили — отодвинули плиту и холодильник. После обработки в вентиляции тоже прошли. Пока тихо. <span class="reviews-hide">(скрыть)</span></span></label>
+                            </p>
+                        </div>
+                    </li>
+                    <li>
+                        <img src="assets/img/reviews/review-elena.webp" alt="" width="80" height="80">
+                        <div>
+                            <p class="reviews-name">Елена · Мытищи</p>
+                            <p class="reviews-meta">
+                                <span class="reviews-stars" aria-label="Оценка 5 из 5">★★★★★</span>
+                                <time datetime="2026-06-21">21 июня 2026</time>
+                            </p>
+                            <p class="reviews-text">
+                                Долго тянула, боялась запаха. После обработки почти не пахло, гарантию прописали в договоре. Если появятся снова — знаю, куда звонить<label class="reviews-more"><input type="checkbox"><span class="reviews-dots">… (развернуть)</span><span class="reviews-rest"> Кошку увезла к дочери на вечер, утром уже были дома. Сказали, какие поверхности протереть. Через неделю ни одной особи. Спокойно, без давления «ещё одну обработку сразу». <span class="reviews-hide">(скрыть)</span></span></label>
+                            </p>
+                        </div>
+                    </li>
+                    <li>
+                        <img src="assets/img/reviews/review-ivan.webp" alt="" width="80" height="80">
+                        <div>
+                            <p class="reviews-name">Иван · Москва</p>
+                            <p class="reviews-meta">
+                                <span class="reviews-stars" aria-label="Оценка 5 из 5">★★★★★</span>
+                                <time datetime="2026-08-09">9 августа 2026</time>
+                            </p>
+                            <p class="reviews-text">
+                                Студия, обработка заняла минут сорок. Скидку зафиксировали по заявке. Нормально, без лишней суеты и «ещё доплатите»<label class="reviews-more"><input type="checkbox"><span class="reviews-dots">… (развернуть)</span><span class="reviews-rest"> Живу у метро, приехали быстро. Обработали плинтусы, под раковиной и за холодильником. Написал в заявке имя и номер — перезвонили в тот же день, цену назвали сразу. За эти деньги ок. <span class="reviews-hide">(скрыть)</span></span></label>
+                            </p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="section faq" id="faq">
+            <div class="wrap faq-grid">
+                <div class="faq-intro">
+                    <p class="section-kicker">FAQ</p>
+                    <h2>Частые вопросы об обработке от тараканов</h2>
+                    <p>Не нашли ответа на свой вопрос? Напишите и мы перезвоним для бесплатной консультации.</p>
+                    <a class="btn btn-primary" href="#call" data-open-modal>Получить консультацию</a>
+                </div>
+                <div class="faq-list">
+                    <details>
+                        <summary>Сколько стоит обработка квартиры от тараканов?</summary>
+                        <p>Стоимость зависит от площади помещения, степени заражения и выбранного метода обработки. Предварительную цену специалист рассчитает до выезда после нескольких уточняющих вопросов.</p>
+                    </details>
+                    <details>
+                        <summary>Сколько времени занимает обработка?</summary>
+                        <p>Продолжительность зависит от площади и степени заражения. В большинстве случаев обработка обычной квартиры занимает около 30–60 минут.</p>
+                    </details>
+                    <details>
+                        <summary>Нужно ли уходить из квартиры?</summary>
+                        <p>Во время обработки в помещении не должны находиться посторонние люди и домашние животные. Специалист заранее расскажет, когда можно будет вернуться и сколько времени необходимо проветривать квартиру.</p>
+                    </details>
+                    <details>
+                        <summary>Безопасна ли обработка для детей и домашних животных?</summary>
+                        <p>Используем профессиональные средства для дезинсекции и соблюдаем требования к их применению. Перед обработкой расскажем, как подготовить помещение, продукты, детские вещи и домашних животных.</p>
+                    </details>
+                    <details>
+                        <summary>Нужно ли готовить квартиру к приезду специалиста?</summary>
+                        <p>Да, но сложной подготовки обычно не требуется. Необходимо убрать открытые продукты и посуду, обеспечить доступ к плинтусам и местам возможного скопления тараканов. Подробную инструкцию дадим заранее.</p>
+                    </details>
+                    <details>
+                        <summary>Нужно ли выносить мебель?</summary>
+                        <p>Обычно нет. Важно обеспечить специалисту доступ к плинтусам, трубам, пространству под раковиной и другим местам, где могут находиться тараканы.</p>
+                    </details>
+                    <details>
+                        <summary>Останется ли запах после обработки?</summary>
+                        <p>Это зависит от применяемого препарата и способа обработки. После завершения работ специалист расскажет, сколько необходимо проветривать помещение и какие поверхности следует протереть.</p>
+                    </details>
+                    <details>
+                        <summary>Что делать, если тараканы появились снова?</summary>
+                        <p>Повторное появление возможно, например, если насекомые проникают из соседних квартир или общедомовых помещений. Специалист поможет определить возможные пути проникновения и даст рекомендации по профилактике. Если случай подпадает под условия гарантии, действуем согласно гарантийным обязательствам.</p>
+                    </details>
+                    <details>
+                        <summary>Достаточно ли одной обработки?</summary>
+                        <p>Во многих случаях одной профессиональной обработки достаточно, однако результат зависит от степени заражения, состояния помещения и источника появления насекомых. При сложных случаях специалист заранее объяснит, может ли потребоваться повторная обработка.</p>
+                    </details>
+                    <details>
+                        <summary>Можно ли уничтожить тараканов, если они идут от соседей?</summary>
+                        <p>Обработка позволяет уничтожить насекомых в квартире и значительно снизить риск их повторного появления. Дополнительно специалист может рекомендовать обработку путей проникновения — вентиляции, щелей, зон возле труб и коммуникаций.</p>
+                    </details>
+                    <details>
+                        <summary>Когда будет виден результат?</summary>
+                        <p>Часть насекомых погибает во время и вскоре после обработки, однако действие препаратов продолжается некоторое время. Поэтому отдельные тараканы могут встречаться и после проведения дезинсекции.</p>
+                    </details>
+                    <details>
+                        <summary>Есть ли гарантия?</summary>
+                        <p>Да, на обработку предоставляется гарантия в соответствии с условиями оказания услуги. Срок и условия гарантии сообщаем до начала работ.</p>
+                    </details>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer" id="contacts">
+        <div class="wrap">
+            <a class="site-logo" href="index.html">
+                <img src="assets/img/logo.webp" alt="СЭС" width="133" height="99">
+                <span>СЭС</span>
+            </a>
+            <p id="privacy">СЭС · лицензия ЕРУЛ № 71.01.14.001.Л.000081.02.25</p>
+            <p><a href="tel:+74959759702">+7 (495) 975-97-02</a></p>
+        </div>
+    </footer>
+
+    <dialog class="modal" id="call" aria-labelledby="call-title">
+        <button class="modal-close" type="button" data-close-modal aria-label="Закрыть"></button>
+        <h2 id="call-title">Оставьте номер</h2>
+        <p class="modal-lead">Перезвоним и согласуем время выезда.</p>
+        <div class="form-box">
+            <form action="#" method="post" novalidate>
+                <input type="hidden" id="lead-plan" name="plan" value="">
+                <div class="field">
+                    <label for="modal-name">Ваше имя</label>
+                    <input id="modal-name" name="name" type="text" autocomplete="name" placeholder="Иван Иванов" required>
+                </div>
+                <div class="field">
+                    <label for="modal-phone">Номер телефона</label>
+                    <input id="modal-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="+7 (___) ___-__-__" required>
+                </div>
+                <button class="btn btn-primary" type="submit">Отправить заявку</button>
+                <p class="form-error" hidden></p>
+                <p class="form-note">Нажимая кнопку, вы соглашаетесь с <a href="#privacy">политикой конфиденциальности</a></p>
+            </form>
+            <p class="form-done" hidden>Заявка принята. Перезвоним согласовать время.</p>
+        </div>
+    </dialog>
+
+    <dialog class="cert-lightbox" id="cert-view" aria-label="Просмотр сертификата">
+        <button class="cert-lightbox-close" type="button" data-cert-close aria-label="Закрыть"></button>
+        <div class="cert-lightbox-stage">
+            <button class="certs-arrow is-prev" type="button" data-cert-prev aria-label="Предыдущий">‹</button>
+            <img alt="">
+            <button class="certs-arrow is-next" type="button" data-cert-next aria-label="Следующий">›</button>
+        </div>
+    </dialog>
+
+    <script src="assets/js/media.js"></script>
+    <script src="assets/js/nav.js" defer></script>
+    <script src="assets/js/forms.js" defer></script>
+    <script src="assets/js/certs.js" defer></script>
+</body>
+</html>
