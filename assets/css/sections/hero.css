@@ -147,12 +147,19 @@
       margin-top: 0;
     }
 
-    .hero-license {
-      color: oklch(0.86 0.03 150);
+    .hero-license a {
+      display: inline-block;
+      max-width: 100%;
+      padding: 0.28em 0.55em 0.32em;
+      background: var(--color-gold);
+      color: var(--color-accent-fg);
+      text-decoration: none;
+      line-height: 1.35;
     }
 
-    .hero-license a {
-      color: var(--color-gold);
+    .hero-license a:hover {
+      color: var(--color-accent-fg);
+      background: color-mix(in oklab, var(--color-gold) 86%, black);
     }
 
     .hero .checks {
