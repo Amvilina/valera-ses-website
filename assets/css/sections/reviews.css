@@ -1,6 +1,6 @@
 @layer components {
   .reviews {
-    border-bottom: 1px solid color-mix(in oklab, var(--color-gold) 48%, var(--color-border));
+    background: var(--color-gold-soft);
   }
 
   .reviews-list {

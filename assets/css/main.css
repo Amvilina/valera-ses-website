@@ -17,6 +17,7 @@
 @import url("./sections/certs.css") layer(components);
 @import url("./sections/reasons.css") layer(components);
 @import url("./sections/lead.css") layer(components);
+@import url("./sections/team.css") layer(components);
 @import url("./sections/reviews.css") layer(components);
 @import url("./sections/faq.css") layer(components);
 @import url("./utilities.css") layer(utilities);
