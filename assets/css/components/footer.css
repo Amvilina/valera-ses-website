@@ -24,7 +24,7 @@
     font-weight: 600;
   }
 
-  #privacy a {
+  .site-footer .is-doc {
     text-decoration: underline;
     text-underline-offset: 0.18em;
     font-weight: 600;
