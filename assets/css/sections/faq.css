@@ -1,8 +1,4 @@
 @layer components {
-  .faq.section {
-    padding-block-start: var(--space-4);
-  }
-
   .faq-grid {
     display: grid;
     gap: var(--space-5);

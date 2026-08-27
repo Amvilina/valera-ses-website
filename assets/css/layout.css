@@ -4,8 +4,10 @@
     margin-inline: auto;
   }
 
-  .section {
-    padding-block: var(--space-6);
+  .section,
+  main > section,
+  .site-footer {
+    padding-block: var(--section-space);
   }
 
   .section-head {

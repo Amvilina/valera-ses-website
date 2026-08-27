@@ -1,8 +1,4 @@
 @layer components {
-  .reviews {
-    padding-block: var(--space-5) var(--space-4);
-  }
-
   .reviews-list {
     list-style: none;
     padding: 0;

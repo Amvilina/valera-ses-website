@@ -59,10 +59,6 @@
     background: var(--color-gold-soft);
   }
 
-  #certs {
-    padding-block: var(--space-4);
-  }
-
   #certs .section-head {
     margin-bottom: 0.85rem;
   }

@@ -1,7 +1,5 @@
 @layer components {
   .hero {
-    padding-block: var(--space-4) var(--space-5);
-
     /*
       Крути только эти 10 строк — они действуют сразу.
       x / y / rotate надписи видны от ширины окна ~1024px (блок на фото).
@@ -130,7 +128,6 @@
       isolation: isolate;
       color: oklch(0.96 0.012 150);
       background: oklch(0.16 0.03 155);
-      padding-block: var(--space-5) var(--space-6);
     }
 
     .hero-copy {

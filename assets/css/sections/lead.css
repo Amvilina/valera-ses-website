@@ -3,7 +3,6 @@
     position: relative;
     isolation: isolate;
     overflow: hidden;
-    padding-block: var(--space-5);
     background: var(--color-gold-soft);
     border-block: 1px solid color-mix(in oklab, var(--color-gold) 32%, var(--color-border));
   }

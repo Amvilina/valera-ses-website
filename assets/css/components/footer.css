@@ -1,6 +1,5 @@
 @layer components {
   .site-footer {
-    padding-block: var(--space-5);
     border-top: 1px solid color-mix(in oklab, var(--color-gold) 38%, var(--color-border));
   }
 

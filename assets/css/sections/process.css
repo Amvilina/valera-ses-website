@@ -2,7 +2,6 @@
   .process {
     position: relative;
     isolation: isolate;
-    padding-block: var(--space-5);
     color: oklch(0.96 0.01 150);
     background: oklch(0.18 0.03 155);
   }

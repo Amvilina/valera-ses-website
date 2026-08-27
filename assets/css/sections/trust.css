@@ -1,6 +1,5 @@
 @layer components {
   .trust {
-    padding-block: var(--space-4);
     background: transparent;
   }
 
