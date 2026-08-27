@@ -24,6 +24,12 @@
     font-weight: 600;
   }
 
+  #privacy a {
+    text-decoration: underline;
+    text-underline-offset: 0.18em;
+    font-weight: 600;
+  }
+
   .site-footer .site-logo img {
     height: 2.4rem;
   }

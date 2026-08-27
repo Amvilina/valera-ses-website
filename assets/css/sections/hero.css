@@ -31,9 +31,18 @@
 
   .hero-license {
     margin-top: var(--space-3);
-    color: var(--color-muted);
     font-size: var(--step--1);
     max-width: none;
+  }
+
+  .hero-license a {
+    color: var(--color-gold);
+    text-decoration: underline;
+    text-underline-offset: 0.18em;
+  }
+
+  .hero-license a:hover {
+    color: color-mix(in oklab, var(--color-gold) 78%, black);
   }
 
   .hero .checks {
@@ -151,6 +160,10 @@
 
     .hero-license {
       color: oklch(0.86 0.03 150);
+    }
+
+    .hero-license a {
+      color: var(--color-gold);
     }
 
     .hero .checks {
