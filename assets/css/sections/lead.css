@@ -10,20 +10,21 @@
   .lead::before {
     content: "10%";
     position: absolute;
-    inset-inline-end: max(0.5rem, 4vw);
-    inset-block-start: 50%;
-    z-index: -1;
-    translate: 0 -50%;
-    font-size: clamp(6rem, 18vw, 12rem);
+    inset-inline-end: max(var(--gutter), calc(50% - 37rem));
+    inset-block-start: 0.4rem;
+    z-index: 0;
+    font-size: clamp(6.5rem, 14vw, 11rem);
     font-weight: 700;
-    line-height: 0.8;
+    line-height: 0.75;
     letter-spacing: -0.06em;
-    color: color-mix(in oklab, var(--color-gold) 28%, transparent);
+    color: color-mix(in oklab, var(--color-gold) 40%, transparent);
     pointer-events: none;
     user-select: none;
   }
 
   .lead-grid {
+    position: relative;
+    z-index: 1;
     display: grid;
     gap: var(--space-4);
   }
