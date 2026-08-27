@@ -74,6 +74,10 @@
     gap: 0.85rem;
   }
 
+  .nav-modal-end .header-meta {
+    display: grid;
+  }
+
   .nav-modal-end .header-phone {
     display: inline;
   }
@@ -82,19 +86,8 @@
     display: inline-flex;
   }
 
-  @media (min-width: 40rem) {
-    .nav-modal-end .header-phone {
-      display: none;
-    }
-  }
-
-  @media (min-width: 48rem) {
-    .nav-modal-end .btn {
-      display: none;
-    }
-  }
-
-  @media (max-width: 63.99rem) {
+  /* То же число, что порог меню в header.css */
+  @media not (min-width: 64rem) {
     html:has(.nav-check:checked) {
       overflow: hidden;
     }
@@ -137,6 +130,7 @@
     }
   }
 
+  /* То же число, что порог меню в header.css */
   @media (min-width: 64rem) {
     .nav-burger,
     .nav-modal-dismiss,
@@ -154,6 +148,7 @@
       flex-wrap: wrap;
       align-items: center;
       justify-content: space-between;
+      flex: 1 0 100%;
       gap: 1.5rem;
     }
 

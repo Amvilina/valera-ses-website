@@ -8,24 +8,25 @@
   }
 
   .site-header .wrap {
-    display: grid;
-    grid-template-columns: auto 1fr auto;
-    grid-template-areas: "logo end burger";
-    column-gap: 0.85rem;
+    display: flex;
+    flex-wrap: wrap;
     align-items: center;
+    justify-content: space-between;
+    gap: 0.65rem 1rem;
     min-height: 4.25rem;
     padding-block: 0.7rem;
   }
 
   .site-logo,
-  .header-end,
+  .header-meta,
+  .header-phone,
+  .header-end .btn,
   .nav-burger {
     position: relative;
     z-index: 2;
   }
 
   .site-logo {
-    grid-area: logo;
     display: inline-flex;
     align-items: center;
     color: var(--color-ink);
@@ -48,12 +49,7 @@
   }
 
   .header-end {
-    grid-area: end;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    gap: 0.85rem 1.25rem;
-    min-width: 0;
+    display: contents;
   }
 
   .header-meta {
@@ -61,6 +57,7 @@
     line-height: 1.2;
     text-align: center;
     justify-items: center;
+    gap: 0.15rem;
   }
 
   .header-city {
@@ -97,52 +94,64 @@
     white-space: nowrap;
   }
 
-  .nav-burger {
-    grid-area: burger;
+  /*
+    Пороги шапки. Меняйте только числа в @media.
+    В каждой паре одно и то же значение: шапка показывает блок, меню его прячет.
+    Можно писать rem или px (40rem ≈ 640px при стандартном шрифте 16px).
+
+    Порядок при сужении окна:
+    1) меню → бургер
+    2) 11 лет / 2400 клиентов
+    3) Москва / 24/7
+    4) кнопка
+    5) телефон
+
+    64rem ниже дублируется в nav.css (бургер и оверлей меню).
+  */
+
+  @media (min-width: 20rem) {
+    .header-end .header-phone {
+      display: inline;
+    }
+
+    .nav-modal-end .header-phone {
+      display: none;
+    }
   }
 
   @media (min-width: 40rem) {
-    .header-end .header-phone {
-      display: inline;
+    .header-end .btn {
+      display: inline-flex;
+    }
+
+    .nav-modal-end .btn {
+      display: none;
     }
   }
 
   @media (min-width: 48rem) {
-    .header-end .btn {
-      display: inline-flex;
+    .header-end .is-place {
+      display: grid;
+    }
+
+    .nav-modal-end .is-place {
+      display: none;
+    }
+  }
+
+  @media (min-width: 60rem) {
+    .header-end .is-stats {
+      display: grid;
+    }
+
+    .nav-modal-end .is-stats {
+      display: none;
     }
   }
 
   @media (min-width: 64rem) {
     .site-header .wrap {
-      grid-template-columns: auto 1fr;
-      grid-template-areas:
-        "logo end"
-        "nav nav";
-      row-gap: 0.7rem;
-      column-gap: 2rem;
       padding-block: 0.75rem 0.85rem;
-    }
-
-    .header-meta {
-      display: grid;
-      gap: 0.15rem;
-      text-align: center;
-      justify-items: center;
-    }
-
-    .header-end {
-      grid-area: end;
-      gap: 1.25rem 1.75rem;
-    }
-
-    .header-end .header-phone,
-    .header-end .btn {
-      display: inline-flex;
-    }
-
-    .site-nav {
-      grid-area: nav;
     }
   }
 }
