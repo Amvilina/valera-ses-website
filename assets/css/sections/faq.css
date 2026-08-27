@@ -9,6 +9,21 @@
     max-width: 14ch;
   }
 
+  .faq-shot {
+    margin: var(--space-4) 0 0;
+    overflow: hidden;
+    border-radius: var(--radius-s);
+    background: var(--color-shot);
+  }
+
+  .faq-shot img {
+    display: block;
+    width: 100%;
+    height: 13.5rem;
+    object-fit: cover;
+    object-position: 50% 38%;
+  }
+
   .faq-intro p {
     margin-top: var(--space-3);
     color: var(--color-muted);
@@ -67,6 +82,10 @@
     .faq-intro {
       position: sticky;
       top: 6.5rem;
+    }
+
+    .faq-shot img {
+      height: 20rem;
     }
   }
 }
