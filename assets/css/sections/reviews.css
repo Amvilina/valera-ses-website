@@ -27,4 +27,12 @@
     width: 100%;
     height: auto;
   }
+
+  @media (min-width: 70rem) {
+    .reviews-list {
+      grid-template-columns: repeat(4, 1fr);
+      max-width: none;
+      gap: 0.75rem;
+    }
+  }
 }
