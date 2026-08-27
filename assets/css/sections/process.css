@@ -69,7 +69,7 @@
   }
 
   .process-num {
-    font-size: var(--step-1);
+    font-size: var(--step-0);
     font-weight: 700;
     letter-spacing: 0.06em;
     color: color-mix(in oklab, var(--color-gold) 45%, white);
@@ -78,7 +78,7 @@
 
   .process-list h3 {
     font-family: var(--font-body);
-    font-size: var(--step-1);
+    font-size: var(--step-0);
     font-weight: 700;
     color: oklch(0.99 0.01 150);
     margin-bottom: 0.4rem;
@@ -86,8 +86,7 @@
 
   .process-list p {
     color: oklch(0.94 0.015 150);
-    font-size: var(--step-1);
-    font-weight: 500;
+    font-size: var(--step--1);
     max-width: 36rem;
   }
 
