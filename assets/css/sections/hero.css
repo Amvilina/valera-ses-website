@@ -13,8 +13,8 @@
     --offer-color: var(--color-gold);
     --arrow-w: 9.25rem;
     --arrow-stroke: 4.2;
-    --arrow-x: -4.75rem;
-    --arrow-y: 0.1rem;
+    --arrow-x: -7.75rem;
+    --arrow-y: -2.1rem;
     --arrow-rotate: -18deg;
   }
 
@@ -55,13 +55,6 @@
     font-size: var(--step-2);
     font-weight: 700;
     color: var(--color-gold);
-  }
-
-  .hero-actions {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.75rem;
-    margin-top: var(--space-4);
   }
 
   .hero-copy {
@@ -153,7 +146,6 @@
     .hero-license,
     .hero .checks,
     .hero-price,
-    .hero-actions,
     .hero-form {
       margin-top: 0;
     }
@@ -176,18 +168,6 @@
       margin: 0;
       padding: 0.12em 0.45em 0.14em;
       background: var(--color-gold);
-      color: var(--color-accent-fg);
-    }
-
-    .hero .btn-ghost {
-      background: var(--color-gold);
-      border-color: var(--color-gold);
-      color: var(--color-accent-fg);
-    }
-
-    .hero .btn-ghost:hover {
-      background: color-mix(in oklab, var(--color-gold) 86%, black);
-      border-color: color-mix(in oklab, var(--color-gold) 86%, black);
       color: var(--color-accent-fg);
     }
 
