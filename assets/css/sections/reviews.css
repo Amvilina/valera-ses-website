@@ -1,27 +1,30 @@
 @layer components {
+  .reviews {
+    border-bottom: 1px solid color-mix(in oklab, var(--color-gold) 48%, var(--color-border));
+  }
+
   .reviews-list {
     list-style: none;
     padding: 0;
     display: grid;
-    gap: 1rem;
-    align-items: start;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.65rem;
+    max-width: 34rem;
+    margin-inline: auto;
   }
 
   .reviews-list li {
-    padding: 0.85rem 0.85rem 1rem;
-    background-color: var(--color-surface);
-    box-shadow: 0 0.15rem 0.85rem oklch(0.28 0.04 90 / 0.14);
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    border-radius: var(--radius-s);
+    background: var(--color-surface);
+    box-shadow: 0 0.12rem 0.7rem oklch(0.28 0.04 90 / 0.12);
   }
 
   .reviews-list img {
     display: block;
     width: 100%;
     height: auto;
-  }
-
-  @media (min-width: 56rem) {
-    .reviews-list {
-      grid-template-columns: 1fr 1fr;
-    }
   }
 }

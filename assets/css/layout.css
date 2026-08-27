@@ -94,8 +94,7 @@
 
   .mark-frame,
   .price-row,
-  .reasons-list li,
-  .reviews-list li {
+  .reasons-list li {
     background-color: var(--color-surface);
     background-image:
       linear-gradient(var(--color-gold), var(--color-gold)),
