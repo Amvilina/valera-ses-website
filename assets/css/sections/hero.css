@@ -14,6 +14,7 @@
     --arrow-x: -7.75rem;
     --arrow-y: -2.1rem;
     --arrow-rotate: -18deg;
+    padding-block-end: var(--space-5);
   }
 
   .hero-grid {

@@ -1,6 +1,7 @@
 @layer components {
   .trust {
     background: transparent;
+    padding-block: 0;
   }
 
   .trust-list {

@@ -28,7 +28,7 @@
     --space-5: 2.15rem;
     --space-6: clamp(2.75rem, 5vw, 4rem);
     /* Отступ сверху и снизу у каждого блока страницы. Меняйте только это. */
-    --section-space: var(--space-6);
+    --section-space: clamp(4rem, 8vw, 6rem);
     --radius-s: 0.35rem;
     --gutter: clamp(1.25rem, 4.5vw, 3.25rem);
     --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
