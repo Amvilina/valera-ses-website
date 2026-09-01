@@ -179,7 +179,7 @@
                     <p class="section-kicker">Документы</p>
                     <h2>Сертификаты на препараты</h2>
                 </div>
-                <div class="certs-carousel">
+                <div class="certs-carousel" data-shot-carousel="#cert-view">
                     <button class="certs-arrow is-prev" type="button" aria-label="Назад">‹</button>
                     <div class="certs-track">
                         <button class="certs-item" type="button" data-cert-src="assets/img/certs/01-cigatrin.webp">
@@ -415,20 +415,42 @@
                     <p class="section-kicker">Клиенты</p>
                     <h2>Отзывы клиентов</h2>
                 </div>
-                <ul class="reviews-list" role="list">
-                    <li>
-                        <img src="assets/img/reviews/review-maps-anna.webp" alt="Отзыв Анны Кузнецовой на Яндекс Картах" width="959" height="609" loading="lazy">
-                    </li>
-                    <li>
-                        <img src="assets/img/reviews/review-maps-dmitry.webp" alt="Отзыв Дмитрия Орлова на Яндекс Картах" width="960" height="617" loading="lazy">
-                    </li>
-                    <li>
-                        <img src="assets/img/reviews/review-maps-elena.webp" alt="Отзыв Елены Смирновой на Яндекс Картах" width="956" height="792" loading="lazy">
-                    </li>
-                    <li>
-                        <img src="assets/img/reviews/review-maps-ivan.webp" alt="Отзыв Ивана Петрова на Яндекс Картах" width="952" height="750" loading="lazy">
-                    </li>
-                </ul>
+                <div class="certs-carousel reviews-carousel" data-shot-carousel="#review-view">
+                    <button class="certs-arrow is-prev" type="button" aria-label="Назад">‹</button>
+                    <div class="certs-track">
+                        <button class="certs-item" type="button" data-cert-src="assets/img/reviews/review-maps-igor.webp">
+                            <img src="assets/img/reviews/review-maps-igor.webp" alt="Отзыв Игоря Савельева на Яндекс Картах" width="1536" height="1024" loading="lazy">
+                        </button>
+                        <button class="certs-item" type="button" data-cert-src="assets/img/reviews/review-maps-natalya.webp">
+                            <img src="assets/img/reviews/review-maps-natalya.webp" alt="Отзыв Натальи Фроловой на Яндекс Картах" width="1536" height="1024" loading="lazy">
+                        </button>
+                        <button class="certs-item" type="button" data-cert-src="assets/img/reviews/review-maps-roman.webp">
+                            <img src="assets/img/reviews/review-maps-roman.webp" alt="Отзыв Романа Жукова на Яндекс Картах" width="1536" height="1024" loading="lazy">
+                        </button>
+                        <button class="certs-item" type="button" data-cert-src="assets/img/reviews/review-maps-maria.webp">
+                            <img src="assets/img/reviews/review-maps-maria.webp" alt="Отзыв Марии Соколовой на Яндекс Картах" width="1536" height="1024" loading="lazy">
+                        </button>
+                        <button class="certs-item" type="button" data-cert-src="assets/img/reviews/review-maps-anna.webp">
+                            <img src="assets/img/reviews/review-maps-anna.webp" alt="Отзыв Анны Кузнецовой на Яндекс Картах" width="959" height="609" loading="lazy">
+                        </button>
+                        <button class="certs-item" type="button" data-cert-src="assets/img/reviews/review-maps-andrey.webp">
+                            <img src="assets/img/reviews/review-maps-andrey.webp" alt="Отзыв Андрея Белова на Яндекс Картах" width="1536" height="1024" loading="lazy">
+                        </button>
+                        <button class="certs-item" type="button" data-cert-src="assets/img/reviews/review-maps-dmitry.webp">
+                            <img src="assets/img/reviews/review-maps-dmitry.webp" alt="Отзыв Дмитрия Орлова на Яндекс Картах" width="960" height="617" loading="lazy">
+                        </button>
+                        <button class="certs-item" type="button" data-cert-src="assets/img/reviews/review-maps-elena.webp">
+                            <img src="assets/img/reviews/review-maps-elena.webp" alt="Отзыв Елены Смирновой на Яндекс Картах" width="956" height="792" loading="lazy">
+                        </button>
+                        <button class="certs-item" type="button" data-cert-src="assets/img/reviews/review-maps-olga.webp">
+                            <img src="assets/img/reviews/review-maps-olga.webp" alt="Отзыв Ольги Васильевой на Яндекс Картах" width="1536" height="1024" loading="lazy">
+                        </button>
+                        <button class="certs-item" type="button" data-cert-src="assets/img/reviews/review-maps-ivan.webp">
+                            <img src="assets/img/reviews/review-maps-ivan.webp" alt="Отзыв Ивана Петрова на Яндекс Картах" width="952" height="750" loading="lazy">
+                        </button>
+                    </div>
+                    <button class="certs-arrow is-next" type="button" aria-label="Вперёд">›</button>
+                </div>
             </div>
         </section>
 
@@ -533,6 +555,15 @@
     </dialog>
 
     <dialog class="cert-lightbox" id="cert-view" aria-label="Просмотр сертификата">
+        <button class="cert-lightbox-close" type="button" data-cert-close aria-label="Закрыть"></button>
+        <div class="cert-lightbox-stage">
+            <button class="certs-arrow is-prev" type="button" data-cert-prev aria-label="Предыдущий">‹</button>
+            <img alt="">
+            <button class="certs-arrow is-next" type="button" data-cert-next aria-label="Следующий">›</button>
+        </div>
+    </dialog>
+
+    <dialog class="cert-lightbox" id="review-view" aria-label="Просмотр отзыва">
         <button class="cert-lightbox-close" type="button" data-cert-close aria-label="Закрыть"></button>
         <div class="cert-lightbox-stage">
             <button class="certs-arrow is-prev" type="button" data-cert-prev aria-label="Предыдущий">‹</button>
