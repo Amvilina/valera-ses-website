@@ -20,5 +20,6 @@
 @import url("./sections/team.css") layer(components);
 @import url("./sections/reviews.css") layer(components);
 @import url("./sections/faq.css") layer(components);
+@import url("./sections/contacts.css") layer(components);
 @import url("./utilities.css") layer(utilities);
 @import url("./motion.css") layer(motion);

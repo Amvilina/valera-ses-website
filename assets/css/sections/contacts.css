@@ -1,0 +1,74 @@
+@layer components {
+  .contacts {
+    background: var(--color-gold-soft);
+    padding-block-end: calc(var(--section-space) * 2 - var(--space-4));
+  }
+
+  .contacts-grid {
+    display: grid;
+    gap: var(--space-5);
+  }
+
+  .contacts-copy p,
+  .contacts-copy address {
+    margin: 0;
+    max-width: none;
+  }
+
+  .contacts-address {
+    display: grid;
+    gap: 0.2rem;
+    font-style: normal;
+  }
+
+  .contacts-metro {
+    color: var(--color-muted);
+  }
+
+  .contacts-phone {
+    display: inline-block;
+    margin-top: var(--space-3);
+    color: var(--color-ink);
+    font-weight: 700;
+    font-size: var(--step-1);
+    text-decoration: none;
+  }
+
+  .contacts-phone:hover {
+    color: var(--color-gold);
+  }
+
+  .contacts-hours {
+    margin-top: 0.35rem;
+    color: var(--color-gold);
+    font-weight: 600;
+    font-size: var(--step--1);
+  }
+
+  .contacts-map {
+    min-height: 16rem;
+    overflow: hidden;
+    border-radius: var(--radius-s);
+    background: var(--color-shot);
+  }
+
+  .contacts-map iframe {
+    display: block;
+    width: 100%;
+    height: 16rem;
+    border: 0;
+  }
+
+  @media (min-width: 64rem) {
+    .contacts-grid {
+      grid-template-columns: minmax(16rem, 0.72fr) minmax(0, 1.28fr);
+      align-items: stretch;
+    }
+
+    .contacts-map,
+    .contacts-map iframe {
+      height: 100%;
+      min-height: 22rem;
+    }
+  }
+}
