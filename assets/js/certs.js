@@ -1,6 +1,39 @@
 (() => {
   const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   const scrollMode = reduced ? "auto" : "smooth";
+  let scrollY = 0;
+
+  const lockScroll = () => {
+    scrollY = window.scrollY;
+    document.documentElement.classList.add("modal-open");
+    document.body.style.position = "fixed";
+    document.body.style.insetInline = "0";
+    document.body.style.top = `-${scrollY}px`;
+  };
+
+  const restoreScroll = () => {
+    const html = document.documentElement;
+    html.classList.remove("modal-open");
+    document.body.style.position = "";
+    document.body.style.insetInline = "";
+    document.body.style.top = "";
+    html.style.scrollBehavior = "auto";
+    window.scrollTo(0, scrollY);
+    html.style.scrollBehavior = "";
+  };
+
+  const wireLightboxShell = (lightbox) => {
+    lightbox.querySelector("[data-cert-close]")?.addEventListener("click", () => lightbox.close());
+    lightbox.addEventListener("click", (event) => {
+      if (event.target === lightbox) lightbox.close();
+    });
+    lightbox.addEventListener("close", () => {
+      const active = document.activeElement;
+      if (active instanceof HTMLElement) active.blur();
+      restoreScroll();
+      requestAnimationFrame(() => restoreScroll());
+    });
+  };
 
   const initShotCarousel = (carousel) => {
     const lightbox = document.querySelector(carousel.dataset.shotCarousel || "");
@@ -10,27 +43,7 @@
     if (!track || !items.length || !lightbox || !frame) return;
 
     let index = 0;
-    let scrollY = 0;
     let swipeX = 0;
-
-    const lockScroll = () => {
-      scrollY = window.scrollY;
-      document.documentElement.classList.add("modal-open");
-      document.body.style.position = "fixed";
-      document.body.style.insetInline = "0";
-      document.body.style.top = `-${scrollY}px`;
-    };
-
-    const restoreScroll = () => {
-      const html = document.documentElement;
-      html.classList.remove("modal-open");
-      document.body.style.position = "";
-      document.body.style.insetInline = "";
-      document.body.style.top = "";
-      html.style.scrollBehavior = "auto";
-      window.scrollTo(0, scrollY);
-      html.style.scrollBehavior = "";
-    };
 
     const step = () => {
       const item = items[0];
@@ -68,18 +81,7 @@
 
     lightbox.querySelector("[data-cert-prev]")?.addEventListener("click", () => show(index - 1));
     lightbox.querySelector("[data-cert-next]")?.addEventListener("click", () => show(index + 1));
-    lightbox.querySelector("[data-cert-close]")?.addEventListener("click", () => lightbox.close());
-
-    lightbox.addEventListener("click", (event) => {
-      if (event.target === lightbox) lightbox.close();
-    });
-
-    lightbox.addEventListener("close", () => {
-      const active = document.activeElement;
-      if (active instanceof HTMLElement) active.blur();
-      restoreScroll();
-      requestAnimationFrame(() => restoreScroll());
-    });
+    wireLightboxShell(lightbox);
 
     lightbox.addEventListener("keydown", (event) => {
       if (event.key === "ArrowRight") {
@@ -103,5 +105,22 @@
     });
   };
 
+  const initDocLightbox = () => {
+    const lightbox = document.querySelector("#license-view");
+    if (!lightbox) return;
+
+    wireLightboxShell(lightbox);
+
+    document.querySelectorAll("[data-open-doc]").forEach((link) => {
+      link.addEventListener("click", (event) => {
+        if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+        event.preventDefault();
+        lockScroll();
+        lightbox.showModal();
+      });
+    });
+  };
+
   document.querySelectorAll(".certs-carousel[data-shot-carousel]").forEach(initShotCarousel);
+  initDocLightbox();
 })();
