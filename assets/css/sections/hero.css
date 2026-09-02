@@ -25,7 +25,7 @@
 
   .hero h1 {
     font-size: var(--step-3);
-    max-width: 16ch;
+    max-width: 22ch;
   }
 
   .hero-license {
@@ -138,7 +138,7 @@
 
     .hero h1 {
       color: oklch(0.99 0.01 150);
-      max-width: 14ch;
+      max-width: 20ch;
     }
 
     .hero-license,

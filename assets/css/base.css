@@ -2,7 +2,7 @@
   html {
     font-size: 100%;
     scroll-behavior: smooth;
-    scroll-padding-top: 6.25rem;
+    scroll-padding-top: 8rem;
   }
 
   @media (prefers-reduced-motion: reduce) {

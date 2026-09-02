@@ -13,8 +13,8 @@
     align-items: center;
     justify-content: space-between;
     gap: 0.65rem 1rem;
-    min-height: 4.25rem;
-    padding-block: 0.7rem;
+    min-height: 6.75rem;
+    padding-block: 0.4rem;
   }
 
   .site-logo,
@@ -36,7 +36,7 @@
 
   .site-logo img {
     width: auto;
-    height: 2.75rem;
+    height: 6.5rem;
     object-fit: contain;
   }
 
@@ -151,7 +151,7 @@
 
   @media (min-width: 64rem) {
     .site-header .wrap {
-      padding-block: 0.75rem 0.85rem;
+      padding-block: 0.45rem 0.5rem;
     }
   }
 }
