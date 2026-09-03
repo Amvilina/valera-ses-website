@@ -30,8 +30,8 @@
     font-weight: 600;
   }
 
-  .site-footer .site-logo img {
-    height: 5.25rem;
+  .site-footer .site-logo {
+    height: 3.5rem;
   }
 
   @media (min-width: 48rem) {

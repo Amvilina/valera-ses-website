@@ -13,7 +13,7 @@
     align-items: center;
     justify-content: space-between;
     gap: 0.65rem 1rem;
-    min-height: 6.75rem;
+    min-height: 5.25rem;
     padding-block: 0.4rem;
   }
 
@@ -29,6 +29,7 @@
   .site-logo {
     display: inline-flex;
     align-items: center;
+    height: 4.5rem;
     color: var(--color-ink);
     font-weight: 700;
     font-size: var(--step-0);
@@ -36,7 +37,7 @@
 
   .site-logo img {
     width: auto;
-    height: 6.5rem;
+    height: 100%;
     object-fit: contain;
   }
 
