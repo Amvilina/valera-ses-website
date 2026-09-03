@@ -81,7 +81,7 @@
 
     .faq-intro {
       position: sticky;
-      top: 8rem;
+      top: var(--header-offset, 8rem);
     }
 
     .faq-shot img {

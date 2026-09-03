@@ -14,18 +14,6 @@
     margin-bottom: var(--space-4);
   }
 
-  #services,
-  #price,
-  #why,
-  #faq,
-  #contacts,
-  #process,
-  #certs,
-  #reviews,
-  #team {
-    scroll-margin-top: 8rem;
-  }
-
   .section-kicker {
     margin: 0 0 0.45rem;
     font-weight: 600;
