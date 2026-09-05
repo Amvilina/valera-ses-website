@@ -67,7 +67,8 @@
     text-decoration-color: color-mix(in oklab, var(--color-gold) 62%, var(--color-border));
   }
 
-  .site-nav :is(a, summary):hover {
+  .site-nav a:hover,
+  .nav-drop summary:hover {
     color: var(--color-gold);
     text-decoration-color: var(--color-gold);
   }
@@ -79,27 +80,48 @@
   .nav-drop summary {
     display: inline-flex;
     align-items: center;
-    gap: 0.35em;
+    gap: 0.4em;
     list-style: none;
     cursor: pointer;
+    transition: color var(--duration-fast) var(--ease-out),
+      text-decoration-color var(--duration-fast) var(--ease-out);
   }
 
-  .nav-drop summary::-webkit-details-marker {
+  .nav-drop summary::-webkit-details-marker,
+  .nav-drop summary::marker {
     display: none;
+    content: "";
   }
 
   .nav-drop summary::after {
     content: "";
-    width: 0.35em;
-    height: 0.35em;
+    flex-shrink: 0;
+    width: 0.42em;
+    height: 0.42em;
     border-inline-end: 1.5px solid currentColor;
     border-bottom: 1.5px solid currentColor;
     translate: 0 -0.12em;
     rotate: 45deg;
+    transition: rotate var(--duration-fast) var(--ease-out),
+      translate var(--duration-fast) var(--ease-out);
+  }
+
+  .nav-drop[open] summary {
+    color: var(--color-gold);
+    text-decoration-color: var(--color-gold);
+  }
+
+  .nav-drop[open] summary::after {
+    translate: 0 0.08em;
+    rotate: -135deg;
   }
 
   .nav-drop-list {
     display: none;
+  }
+
+  .nav-drop-list a {
+    white-space: nowrap;
   }
 
   .nav-modal-end {
@@ -205,8 +227,7 @@
       height: 0.45rem;
     }
 
-    .nav-drop:hover .nav-drop-list,
-    .nav-drop:focus-within .nav-drop-list {
+    .nav-drop[open] .nav-drop-list {
       display: grid;
     }
 
@@ -215,8 +236,9 @@
       top: calc(100% + 0.35rem);
       left: 0;
       z-index: 1;
-      min-width: 10.5rem;
-      padding: 0.65rem 0.85rem;
+      width: max-content;
+      min-width: 100%;
+      padding: 0.65rem 0.95rem;
       gap: 0.45rem;
       background: var(--color-surface);
       border: 1px solid color-mix(in oklab, var(--color-gold) 38%, var(--color-border));
