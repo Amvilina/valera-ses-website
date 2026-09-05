@@ -123,6 +123,10 @@
     object-position: 78% 50%;
   }
 
+  .hero-visual.is-start img {
+    object-position: 8% 50%;
+  }
+
   @media (max-width: 63.99rem) {
     .hero {
       position: relative;
