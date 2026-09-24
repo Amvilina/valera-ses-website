@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Документ</title>
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="icon" href="assets/img/favicon/favicon.svg" type="image/svg+xml">
+    <link rel="icon" href="assets/img/favicon/favicon.ico" sizes="48x48">
+    <meta name="theme-color" content="#f4f0e6">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/sections/desk.css">
+</head>
+<body>
+    <header class="site-header">
+        <div class="wrap">
+            <a class="site-logo" href="index.html">
+                <img src="assets/img/logo.webp" alt="ГОС СЭС">
+                <span>ГОС СЭС</span>
+            </a>
+        </div>
+    </header>
+
+    <main class="desk">
+        <div class="wrap">
+            <div class="desk-head">
+                <p class="section-kicker">Документ</p>
+                <h1>Коммерческое предложение</h1>
+                <p>Заполните поля и откройте PDF. Реквизиты исполнителя, печать и подпись подставляются сами.</p>
+            </div>
+
+            <form class="desk-form" id="desk-form">
+                <section>
+                    <h2>Документ</h2>
+                    <div class="desk-grid is-3">
+                        <label class="field">
+                            <span>Номер</span>
+                            <input name="number" type="text" autocomplete="off">
+                        </label>
+                        <label class="field">
+                            <span>Дата</span>
+                            <input name="date" type="date" required>
+                        </label>
+                        <label class="field">
+                            <span>Срок, мес.</span>
+                            <input name="valid" type="number" min="1" max="24" value="2" required>
+                        </label>
+                    </div>
+                    <label class="field">
+                        <span>Тема</span>
+                        <input name="subject" type="text" value="Дератизация, дезинсекция и акарицидная обработка на 2025 год" required>
+                    </label>
+                </section>
+
+                <section>
+                    <h2>Заказчик</h2>
+                    <label class="field">
+                        <span>Заказчик</span>
+                        <input name="customer" type="text" value="Федеральное государственное бюджетное профессиональное образовательное учреждение «Подмосковный политехнический колледж»" required>
+                    </label>
+                    <div class="desk-grid is-2">
+                        <label class="field">
+                            <span>ИНН заказчика</span>
+                            <input name="customerInn" type="text" inputmode="numeric" value="5007124075">
+                        </label>
+                        <label class="field">
+                            <span>КПП</span>
+                            <input name="customerKpp" type="text" inputmode="numeric" value="500701001">
+                        </label>
+                    </div>
+                    <label class="field">
+                        <span>Реквизиты и адрес заказчика</span>
+                        <textarea name="customerReqs">141800, Московская область, г. Дмитров, ул. Космонавтов, д. 33
+тел. +7 (495) 993-76-18, +7 (495) 993-76-17
+politeh-mo@yandex.ru
+http://politeh-mo.ru</textarea>
+                    </label>
+                    <label class="field">
+                        <span>Объект работ</span>
+                        <input name="object" type="text" value="Московская область, г. Дмитров, ул. Космонавтов, д. 33, д. 32; мкр-н ДЗФС, д. 23 (учебный корпус и общежитие)" required>
+                    </label>
+                </section>
+
+                <section>
+                    <h2>Текст</h2>
+                    <label class="field">
+                        <span>Вступление</span>
+                        <textarea name="intro">Настоящее коммерческое предложение подготовлено по запросу ФГБПОУ «Подмосковный политехнический колледж» на оказание услуг по дератизации, дезинсекции и акарицидной обработке зданий и территории в 2025 году.
+
+Работы проводятся в три этапа:
+
+Дератизация — 3-кратная, площадь 4000 м², 1 раз в квартал.
+
+Дезинсекция — 3-кратная, площадь 9700 м², по графику:
+1-я обработка — 25.07.2025;
+2-я обработка — 11.08.2025;
+3-я обработка — 02.11.2025.
+
+Акарицидная обработка — однократно, площадь 45 000 м², в любую согласованную дату.
+
+Договор заключается на срок выполнения работ с пролонгацией на 1 год.</textarea>
+                    </label>
+                    <label class="field">
+                        <span>Примечание</span>
+                        <textarea name="note">Стоимость дератизации и дезинсекции указана за все три этапа. Акарицидная обработка — за один выезд. Цена включает материалы, транспорт и работу. Итоговая стоимость без НДС.</textarea>
+                    </label>
+                    <label class="field">
+                        <span>Гарантия</span>
+                        <input name="guarantee" type="text" value="Гарантия на выполненные работы — 3 месяца. Договор с пролонгацией на 1 год.">
+                    </label>
+                </section>
+
+                <section>
+                    <h2>Таблица работ</h2>
+                    <div class="desk-lines" id="desk-lines"></div>
+                    <div class="desk-actions is-add">
+                        <button class="btn btn-ghost" type="button" id="desk-add">Добавить строку</button>
+                    </div>
+                    <p class="desk-total" id="desk-total">Итого: 0 ₽</p>
+                </section>
+
+                <div class="desk-actions is-submit">
+                    <button class="btn btn-primary" type="submit">Открыть PDF</button>
+                    <p class="form-error" id="desk-error" hidden></p>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <script src="assets/js/desk.js"></script>
+</body>
+</html>
