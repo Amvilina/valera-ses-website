@@ -99,7 +99,7 @@
 
   addLine({ service: "Дератизация", times: "3 этапа, 1 раз в квартал", price: "105", unit: "м²", qty: "4000" });
   addLine({ service: "Дезинсекция", times: "3 этапа по графику", price: "65", unit: "м²", qty: "9700" });
-  addLine({ service: "Акарицидная обработка", times: "1 раз, дата по согласованию", price: "72", unit: "м²", qty: "45000" });
+  addLine({ service: "Акарицидная обработка", times: "1 раз, дата по согласованию", price: "8", unit: "м²", qty: "45000" });
   addBtn?.addEventListener("click", () => addLine());
 
   const loadScript = (src) => new Promise((resolve, reject) => {
@@ -156,8 +156,9 @@
     const intro = String(data.get("intro") || "").trim();
     const note = String(data.get("note") || "").trim();
     const customerLines = [String(data.get("customer") || "")];
-    if (customerInn) customerLines.push(`ИНН ${customerInn}`);
-    if (customerKpp) customerLines.push(`КПП ${customerKpp}`);
+    if (customerInn || customerKpp) {
+      customerLines.push([customerInn && `ИНН ${customerInn}`, customerKpp && `КПП ${customerKpp}`].filter(Boolean).join("   "));
+    }
     if (customerReqs) customerLines.push(customerReqs);
 
     const tableBody = [
@@ -184,42 +185,40 @@
 
     const doc = {
       pageSize: "A4",
-      pageMargins: [40, 36, 40, 40],
-      defaultStyle: { font: "Roboto", fontSize: 10, color: "#1a1a1a", lineHeight: 1.25 },
+      pageMargins: [32, 22, 32, 22],
+      defaultStyle: { font: "Roboto", fontSize: 9, color: "#1a1a1a", lineHeight: 1.2 },
       content: [
         {
           columns: [
-            { image: logo, width: 52 },
-            { width: 16, text: "" },
+            { image: logo, width: 40 },
+            { width: 14, text: "" },
             {
               width: "*",
               stack: [
-                { text: "ИП Гуреев Валерий Вячеславович", fontSize: 10, color: "#333" },
-                { text: "ИНН 500713992633", fontSize: 8, color: "#555" },
-                { text: "ОГРНИП 326508810020101", fontSize: 8, color: "#555" },
+                { text: "ИП Гуреев Валерий Вячеславович", fontSize: 9, color: "#333" },
+                { text: "ИНН 500713992633    ОГРНИП 326508810020101", fontSize: 8, color: "#555" },
               ],
             },
             {
               width: "auto",
               alignment: "right",
               stack: [
-                { text: "+7 (495) 975-97-02", bold: true, fontSize: 12, color: GREEN },
-                { text: "Москва, ул. Берёзовая аллея, 7Б", fontSize: 8, color: "#555" },
-                { text: "Лицензия ЕРУЛ № 50.99.08.003.Л.000028.04.26", fontSize: 8, color: "#555" },
+                { text: "+7 (495) 975-97-02", bold: true, fontSize: 11, color: GREEN },
+                { text: "Лицензия ЕРУЛ № 50.99.08.003.Л.000028.04.26", fontSize: 7, color: "#555" },
                 { text: "гос-сэс.рф", fontSize: 8, color: "#555" },
               ],
             },
           ],
-          margin: [0, 0, 0, 14],
+          margin: [0, 0, 0, 8],
         },
-        { canvas: [{ type: "line", x1: 0, y1: 0, x2: 515, y2: 0, lineWidth: 1.2, lineColor: GOLD }] },
+        { canvas: [{ type: "line", x1: 0, y1: 0, x2: 531, y2: 0, lineWidth: 1.2, lineColor: GOLD }] },
         {
           text: number ? `Коммерческое предложение № ${number}` : "Коммерческое предложение",
           alignment: "center",
           bold: true,
-          fontSize: 16,
+          fontSize: 13,
           color: GREEN,
-          margin: [0, 14, 0, 4],
+          margin: [0, 8, 0, 3],
         },
         {
           table: {
@@ -228,72 +227,76 @@
               text: String(data.get("subject") || ""),
               alignment: "center",
               bold: true,
-              fontSize: 11,
+              fontSize: 9,
               color: "#fff",
               fillColor: GOLD,
-              margin: [4, 6, 4, 6],
+              margin: [3, 4, 3, 4],
             }]],
           },
           layout: "noBorders",
-          margin: [0, 0, 0, 12],
+          margin: [0, 0, 0, 8],
         },
-        intro && { text: intro, margin: [0, 0, 0, 10], fontSize: 9 },
+        intro && { text: intro, margin: [0, 0, 0, 7], fontSize: 8 },
         {
           table: {
             widths: ["*", "*"],
             body: [
               [
-                { text: "Заказчик", bold: true, color: "#fff", fillColor: GREEN, fontSize: 9 },
-                { text: "Объект работ", bold: true, color: "#fff", fillColor: GREEN, fontSize: 9 },
+                { text: "Заказчик", bold: true, color: "#fff", fillColor: GREEN, fontSize: 8 },
+                { text: "Объект работ", bold: true, color: "#fff", fillColor: GREEN, fontSize: 8 },
               ],
               [
-                { text: customerLines.join("\n"), fontSize: 9 },
-                { text: String(data.get("object")), fontSize: 9 },
+                { text: customerLines.join("\n"), fontSize: 8 },
+                { text: String(data.get("object")), fontSize: 8 },
               ],
             ],
           },
           layout: {
             hLineColor: () => "#d7d2c4",
             vLineColor: () => "#d7d2c4",
+            paddingTop: () => 3,
+            paddingBottom: () => 3,
+            paddingLeft: () => 5,
+            paddingRight: () => 5,
           },
-          margin: [0, 0, 0, 12],
+          margin: [0, 0, 0, 8],
         },
         {
           table: {
             headerRows: 1,
-            widths: ["*", 78, 78, 72, 78],
+            widths: ["*", 78, 70, 68, 72],
             body: tableBody,
           },
           layout: {
             fillColor: (row) => (row === 0 ? GREEN : null),
             hLineColor: () => "#d7d2c4",
             vLineColor: () => "#d7d2c4",
-            paddingLeft: () => 6,
-            paddingRight: () => 6,
-            paddingTop: () => 5,
-            paddingBottom: () => 5,
+            paddingLeft: () => 5,
+            paddingRight: () => 5,
+            paddingTop: () => 3,
+            paddingBottom: () => 3,
           },
-          margin: [0, 0, 0, 10],
+          margin: [0, 0, 0, 7],
         },
-        guarantee && { text: guarantee, margin: [0, 0, 0, 6], bold: true, fontSize: 10 },
-        note && { text: note, margin: [0, 0, 0, 8], fontSize: 8, color: "#444" },
+        guarantee && { text: guarantee, margin: [0, 0, 0, 4], bold: true, fontSize: 8 },
+        note && { text: note, margin: [0, 0, 0, 4], fontSize: 7, color: "#444" },
         {
           text: `Настоящее коммерческое предложение составлено ${formatDate(data.get("date"))} и действует в течение ${valid} мес. с даты предоставления.`,
-          fontSize: 9,
-          margin: [0, 0, 0, 6],
+          fontSize: 8,
+          margin: [0, 0, 0, 4],
         },
         {
           unbreakable: true,
-          margin: [0, 10, 0, 0],
+          margin: [0, 4, 0, 0],
           stack: [
-            { text: "ИП Гуреев В. В.", fontSize: 9, margin: [0, 0, 0, 2] },
+            { text: "ИП Гуреев В. В.", fontSize: 8, margin: [0, 0, 0, 2] },
             {
               alignment: "top",
-              columnGap: 40,
+              columnGap: 24,
               columns: [
-                { image: sign, width: 96 , margin: [0, -43, 0, 0]},
+                { image: sign, width: 40, margin: [0, 0, 0, 0] },
                 { width: "*", text: "" },
-                { image: stamp, width: 300, margin: [0, -120, 0, 0] },
+                { image: stamp, width: 200, relativePosition: { x: 0, y: -70 } },
               ],
             },
           ],
