@@ -1,0 +1,99 @@
+@layer components {
+  .mark {
+    padding-block: var(--space-6);
+  }
+
+  .mark-head {
+    margin-bottom: var(--space-4);
+  }
+
+  .mark-head h1 {
+    font-size: var(--step-2);
+  }
+
+  .mark-bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.65rem;
+    align-items: center;
+    margin-bottom: var(--space-4);
+  }
+
+  .mark-bar .btn {
+    cursor: pointer;
+  }
+
+  .mark-bar .form-error,
+  .mark-name {
+    flex: 1 1 100%;
+    margin: 0;
+  }
+
+  .mark-name {
+    color: var(--color-muted);
+    font-size: var(--step--1);
+  }
+
+  .mark-stage {
+    display: grid;
+    gap: 1rem;
+    width: min(100%, 48rem);
+  }
+
+  .mark-page {
+    position: relative;
+    background: var(--color-surface);
+    box-shadow: 0 0.4rem 1.4rem color-mix(in oklab, var(--color-ink) 10%, transparent);
+  }
+
+  .mark-page canvas {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  .mark-item {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 8rem;
+    cursor: grab;
+    touch-action: none;
+    user-select: none;
+    outline: 1px dashed var(--color-gold);
+  }
+
+  .mark-item:active {
+    cursor: grabbing;
+  }
+
+  .mark-item.is-stamp {
+    width: 22%;
+  }
+
+  .mark-item.is-sign {
+    width: 16%;
+  }
+
+  .mark-item img {
+    display: block;
+    width: 100%;
+    pointer-events: none;
+  }
+
+  .mark-resize {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 0.75rem;
+    height: 0.75rem;
+    background: var(--color-gold);
+    cursor: nwse-resize;
+    touch-action: none;
+  }
+
+  .mark-item:focus-visible {
+    outline: 2px solid var(--color-gold);
+    outline-offset: 2px;
+  }
+}

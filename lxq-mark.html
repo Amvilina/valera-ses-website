@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Документ</title>
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="icon" href="assets/img/favicon/favicon.svg" type="image/svg+xml">
+    <link rel="icon" href="assets/img/favicon/favicon.ico" sizes="48x48">
+    <meta name="theme-color" content="#f4f0e6">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/sections/mark.css">
+</head>
+<body>
+    <header class="site-header">
+        <div class="wrap">
+            <a class="site-logo" href="index.html">
+                <img src="assets/img/logo.webp" alt="ГОС СЭС">
+                <span>ГОС СЭС</span>
+            </a>
+        </div>
+    </header>
+
+    <main class="mark">
+        <div class="wrap">
+            <div class="mark-head">
+                <p class="section-kicker">Документ</p>
+                <h1>Печать и подпись</h1>
+            </div>
+
+            <div class="mark-bar">
+                <label class="btn btn-ghost">
+                    Загрузить PDF
+                    <input id="mark-file" type="file" accept="application/pdf" hidden>
+                </label>
+                <button class="btn btn-primary" type="button" id="mark-download" disabled>Скачать</button>
+                <p class="mark-name" id="mark-name" hidden></p>
+                <p class="form-error" id="mark-error" hidden></p>
+            </div>
+
+            <div class="mark-stage" id="mark-stage"></div>
+        </div>
+    </main>
+
+    <script src="assets/js/mark.js"></script>
+</body>
+</html>
