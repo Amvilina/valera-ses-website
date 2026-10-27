@@ -163,11 +163,14 @@
     });
     const out = await pdfDoc.save();
     const blob = new Blob([out], { type: "application/pdf" });
-    const link = document.createElement("a");
-    link.href = URL.createObjectURL(blob);
-    link.download = fileName.replace(/\.pdf$/i, "") + "-signed.pdf";
-    link.click();
-    URL.revokeObjectURL(link.href);
+    const url = URL.createObjectURL(blob);
+    const opened = window.open(url, "_blank");
+    if (!opened) {
+      const link = document.createElement("a");
+      link.href = url;
+      link.download = fileName.replace(/\.pdf$/i, "") + "-signed.pdf";
+      link.click();
+    }
   };
 
   fileInput.addEventListener("change", async () => {
