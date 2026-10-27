@@ -162,15 +162,35 @@
       });
     });
     const out = await pdfDoc.save();
-    const blob = new Blob([out], { type: "application/pdf" });
-    const url = URL.createObjectURL(blob);
-    const opened = window.open(url, "_blank");
-    if (!opened) {
-      const link = document.createElement("a");
-      link.href = url;
-      link.download = fileName.replace(/\.pdf$/i, "") + "-signed.pdf";
-      link.click();
+    const name = fileName.replace(/\.pdf$/i, "") + "-signed.pdf";
+    const file = new File([out], name, { type: "application/pdf" });
+    if (navigator.canShare?.({ files: [file] })) {
+      try {
+        await navigator.share({ files: [file] });
+        return;
+      } catch (err) {
+        if (err.name === "AbortError") return;
+      }
     }
+    if (/iP(hone|ad|od)/.test(navigator.userAgent)) {
+      const dataUrl = await new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.onload = () => resolve(reader.result);
+        reader.onerror = () => reject(reader.error);
+        reader.readAsDataURL(file);
+      });
+      window.location.href = dataUrl;
+      return;
+    }
+    const url = URL.createObjectURL(file);
+    const opened = window.open(url, "_blank");
+    if (opened) return;
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = name;
+    document.body.append(link);
+    link.click();
+    link.remove();
   };
 
   fileInput.addEventListener("change", async () => {
