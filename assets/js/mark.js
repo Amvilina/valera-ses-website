@@ -162,35 +162,24 @@
       });
     });
     const out = await pdfDoc.save();
-    const name = fileName.replace(/\.pdf$/i, "") + "-signed.pdf";
-    const file = new File([out], name, { type: "application/pdf" });
-    if (navigator.canShare?.({ files: [file] })) {
-      try {
-        await navigator.share({ files: [file] });
-        return;
-      } catch (err) {
-        if (err.name === "AbortError") return;
-      }
-    }
-    if (/iP(hone|ad|od)/.test(navigator.userAgent)) {
-      const dataUrl = await new Promise((resolve, reject) => {
-        const reader = new FileReader();
-        reader.onload = () => resolve(reader.result);
-        reader.onerror = () => reject(reader.error);
-        reader.readAsDataURL(file);
-      });
-      window.location.href = dataUrl;
+    const name = `${String(fileName || "document").replace(/\.pdf$/i, "")}-signed.pdf`;
+    const blob = new Blob([new Uint8Array(out)], { type: "application/pdf" });
+    const file = new File([blob], name, { type: "application/pdf" });
+    try {
+      await navigator.share({ files: [file], title: name });
       return;
+    } catch (err) {
+      if (err.name === "AbortError") return;
     }
-    const url = URL.createObjectURL(file);
-    const opened = window.open(url, "_blank");
-    if (opened) return;
+    const url = URL.createObjectURL(blob);
     const link = document.createElement("a");
     link.href = url;
     link.download = name;
+    link.type = "application/pdf";
     document.body.append(link);
     link.click();
     link.remove();
+    setTimeout(() => URL.revokeObjectURL(url), 10000);
   };
 
   fileInput.addEventListener("change", async () => {
