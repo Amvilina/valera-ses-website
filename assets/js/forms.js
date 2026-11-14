@@ -145,8 +145,36 @@
     requestAnimationFrame(() => restoreScroll());
   });
 
+  const sendLead = async (form) => {
+    const name = form.querySelector('input[name="name"]');
+    const tel = form.querySelector('input[type="tel"]');
+    const plan = form.querySelector('input[name="plan"]');
+    const body = new URLSearchParams();
+    body.set("Телефон", tel.value.trim());
+    body.set("_subject", "Заявка с сайта ГОС СЭС");
+    body.set("_template", "table");
+    body.set("_captcha", "false");
+    body.set("_honey", "");
+    body.set("Страница", location.href);
+    if (name?.value.trim()) body.set("Имя", name.value.trim());
+    if (plan?.value.trim()) body.set("Услуга", plan.value.trim());
+
+    const response = await fetch(
+      "https://formsubmit.co/ajax/sesmoskovskoyoblasti@gmail.com",
+      {
+        method: "POST",
+        headers: { Accept: "application/json" },
+        body,
+      },
+    );
+    const data = await response.json().catch(() => ({}));
+    if (!response.ok || String(data.success) !== "true") {
+      throw new Error(data.message || "");
+    }
+  };
+
   document.querySelectorAll("form").forEach((form) => {
-    form.addEventListener("submit", (event) => {
+    form.addEventListener("submit", async (event) => {
       event.preventDefault();
       const name = form.querySelector('input[name="name"]');
       const tel = form.querySelector('input[type="tel"]');
@@ -170,6 +198,19 @@
           error.textContent = "Введите номер полностью, 11 цифр";
         }
         tel?.focus();
+        return;
+      }
+
+      const submit = form.querySelector('[type="submit"]');
+      if (submit) submit.disabled = true;
+      try {
+        await sendLead(form);
+      } catch {
+        if (error) {
+          error.hidden = false;
+          error.textContent = "Не отправилось. Позвоните нам";
+        }
+        if (submit) submit.disabled = false;
         return;
       }
 
