@@ -86,9 +86,16 @@
     const form = modal.querySelector("form");
     const done = modal.querySelector(".form-done");
     const error = modal.querySelector(".form-error");
+    const title = modal.querySelector("#call-title");
     if (form) form.hidden = false;
     if (done) done.hidden = true;
     if (error) error.hidden = true;
+    if (title) title.textContent = "Оставьте номер";
+    modal.classList.remove("is-thanks");
+    modal.querySelector(".modal-deal")?.removeAttribute("hidden");
+    modal.querySelector(".modal-lead")?.removeAttribute("hidden");
+    const submit = form?.querySelector('[type="submit"]');
+    if (submit) submit.disabled = false;
   };
 
   const lockScroll = () => {
@@ -216,6 +223,13 @@
 
       if (error) error.hidden = true;
       form.hidden = true;
+      if (modal && form.closest("#call")) {
+        const title = modal.querySelector("#call-title");
+        if (title) title.textContent = "Спасибо за заявку";
+        modal.classList.add("is-thanks");
+        if (done) done.hidden = true;
+        return;
+      }
       if (done) done.hidden = false;
     });
   });
