@@ -58,4 +58,18 @@
     border-color: var(--color-gold);
     color: var(--color-gold-fg);
   }
+
+  .btn.is-sending,
+  .btn.is-sending:hover,
+  .btn.is-sending:disabled {
+    background: oklch(0.78 0.012 95);
+    color: oklch(0.4 0.02 90);
+    border-color: transparent;
+    text-transform: none;
+    opacity: 1;
+  }
+
+  .btn.is-sending .btn-off {
+    display: none;
+  }
 }

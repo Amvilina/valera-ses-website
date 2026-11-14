@@ -4,7 +4,7 @@
 @import url("./tokens.css") layer(tokens);
 @import url("./base.css") layer(base);
 @import url("./layout.css") layer(layout);
-@import url("./components/button.css?v=3") layer(components);
+@import url("./components/button.css?v=4") layer(components);
 @import url("./components/form.css") layer(components);
 @import url("./components/header.css") layer(components);
 @import url("./components/nav.css") layer(components);

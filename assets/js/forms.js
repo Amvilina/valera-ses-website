@@ -95,7 +95,7 @@
     modal.querySelector(".modal-deal")?.removeAttribute("hidden");
     modal.querySelector(".modal-lead")?.removeAttribute("hidden");
     const submit = form?.querySelector('[type="submit"]');
-    if (submit) submit.disabled = false;
+    clearSending(submit);
   };
 
   const lockScroll = () => {
@@ -151,6 +151,28 @@
     restoreScroll();
     requestAnimationFrame(() => restoreScroll());
   });
+
+  const buttonLabel = (submit) =>
+    [...submit.childNodes].find(
+      (node) => node.nodeType === Node.TEXT_NODE && node.textContent.trim(),
+    );
+
+  const markSending = (submit) => {
+    if (!submit) return;
+    const label = buttonLabel(submit);
+    if (label && !submit.dataset.label) submit.dataset.label = label.textContent;
+    if (label) label.textContent = "отправка...";
+    submit.classList.add("is-sending");
+    submit.disabled = true;
+  };
+
+  const clearSending = (submit) => {
+    if (!submit) return;
+    const label = buttonLabel(submit);
+    if (label && submit.dataset.label) label.textContent = submit.dataset.label;
+    submit.classList.remove("is-sending");
+    submit.disabled = false;
+  };
 
   const sendLead = async (form) => {
     const name = form.querySelector('input[name="name"]');
@@ -209,7 +231,7 @@
       }
 
       const submit = form.querySelector('[type="submit"]');
-      if (submit) submit.disabled = true;
+      markSending(submit);
       try {
         await sendLead(form);
       } catch {
@@ -217,7 +239,7 @@
           error.hidden = false;
           error.textContent = "Не отправилось. Позвоните нам";
         }
-        if (submit) submit.disabled = false;
+        clearSending(submit);
         return;
       }
 
