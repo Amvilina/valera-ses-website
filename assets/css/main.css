@@ -4,12 +4,12 @@
 @import url("./tokens.css") layer(tokens);
 @import url("./base.css") layer(base);
 @import url("./layout.css") layer(layout);
-@import url("./components/button.css") layer(components);
+@import url("./components/button.css?v=3") layer(components);
 @import url("./components/form.css") layer(components);
 @import url("./components/header.css") layer(components);
 @import url("./components/nav.css") layer(components);
 @import url("./components/footer.css") layer(components);
-@import url("./components/modal.css") layer(components);
+@import url("./components/modal.css?v=3") layer(components);
 @import url("./sections/hero.css") layer(components);
 @import url("./sections/trust.css") layer(components);
 @import url("./sections/pricing.css") layer(components);

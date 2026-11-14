@@ -12,7 +12,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/main.css?v=3">
     <!-- Yandex.Metrika counter -->
     <script type="text/javascript">
         (function(m,e,t,r,i,k,a){
@@ -45,7 +45,7 @@
                     <p class="header-hours">Работаем 24/7</p>
                 </div>
                 <a class="header-phone" href="tel:+74959759702">+7 (495) 975-97-02</a>
-                <a class="btn btn-primary" href="#call" data-open-modal>Вызвать специалиста</a>
+                <a class="btn btn-primary" href="#call" data-open-modal>Вызвать специалиста<span class="btn-off" aria-hidden="true">−10%</span></a>
             </div>
             <label class="nav-burger" for="nav-on">
                 <span class="visually-hidden">Меню</span>
@@ -83,7 +83,7 @@
                             <p class="header-hours">Работаем 24/7</p>
                         </div>
                         <a class="header-phone" href="tel:+74959759702">+7 (495) 975-97-02</a>
-                        <a class="btn btn-primary" href="#call" data-open-modal>Вызвать специалиста</a>
+                        <a class="btn btn-primary" href="#call" data-open-modal>Вызвать специалиста<span class="btn-off" aria-hidden="true">−10%</span></a>
                     </div>
                 </div>
             </div>
@@ -118,7 +118,7 @@
                                     <label for="hero-phone">Номер телефона</label>
                                     <input id="hero-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="+7 (___) ___-__-__" required>
                                 </div>
-                                <button class="btn btn-primary" type="submit">Отправить заявку</button>
+                                <button class="btn btn-primary" type="submit">Отправить заявку<span class="btn-off" aria-hidden="true">−10%</span></button>
                             </div>
                             <p class="form-error" hidden></p>
                             <p class="form-note">Нажимая кнопку, вы соглашаетесь с <a href="privacy.html">политикой конфиденциальности</a></p>
@@ -164,7 +164,7 @@
                         <figure class="price-shot">
                             <img src="assets/img/price-apartment.webp" alt="Обработка квартиры" width="1200" height="800" loading="lazy">
                         </figure>
-                        <a class="btn btn-ghost" href="#call" data-open-modal data-plan="Обработка квартиры">Узнать цену</a>
+                        <a class="btn btn-ghost" href="#call" data-open-modal data-plan="Обработка квартиры">Узнать цену<span class="btn-off" aria-hidden="true">−10%</span></a>
                     </article>
                     <article class="price-row mark-frame">
                         <p class="price-kind">Цены для физлиц</p>
@@ -179,7 +179,7 @@
                         <figure class="price-shot">
                             <img src="assets/img/price-house.webp" alt="Обработка частного дома" width="1200" height="800" loading="lazy">
                         </figure>
-                        <a class="btn btn-ghost" href="#call" data-open-modal data-plan="Дома и помещения">Узнать цену</a>
+                        <a class="btn btn-ghost" href="#call" data-open-modal data-plan="Дома и помещения">Узнать цену<span class="btn-off" aria-hidden="true">−10%</span></a>
                     </article>
                     <article class="price-row mark-frame">
                         <p class="price-kind">Цены для юрлиц</p>
@@ -194,7 +194,7 @@
                         <figure class="price-shot">
                             <img src="assets/img/price-org.webp" alt="Обработка организации" width="1200" height="800" loading="lazy">
                         </figure>
-                        <a class="btn btn-ghost" href="#call" data-open-modal data-plan="Обработка в организации">Узнать цену</a>
+                        <a class="btn btn-ghost" href="#call" data-open-modal data-plan="Обработка в организации">Узнать цену<span class="btn-off" aria-hidden="true">−10%</span></a>
                     </article>
                 </div>
             </div>
@@ -375,7 +375,7 @@
                                 <label for="lead-phone">Номер телефона</label>
                                 <input id="lead-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="+7 (___) ___-__-__" required>
                             </div>
-                            <button class="btn btn-primary" type="submit">Отправить заявку</button>
+                            <button class="btn btn-primary" type="submit">Отправить заявку<span class="btn-off" aria-hidden="true">−10%</span></button>
                         </div>
                         <p class="form-error" hidden></p>
                         <p class="form-note">Нажимая кнопку, вы соглашаетесь с <a href="privacy.html">политикой конфиденциальности</a></p>
@@ -490,7 +490,7 @@
                         <img src="assets/img/gryzuny-faq.webp" alt="Мышь и специалист по дератизации" width="864" height="1152" loading="lazy">
                     </figure>
                     <p>Не нашли ответа на свой вопрос? Напишите и мы перезвоним для бесплатной консультации.</p>
-                    <a class="btn btn-primary" href="#call" data-open-modal>Получить консультацию</a>
+                    <a class="btn btn-primary" href="#call" data-open-modal>Получить консультацию<span class="btn-off" aria-hidden="true">−10%</span></a>
                 </div>
                 <div class="faq-list">
                     <details>
@@ -582,6 +582,10 @@
     <dialog class="modal" id="call" aria-labelledby="call-title">
         <button class="modal-close" type="button" data-close-modal aria-label="Закрыть"></button>
         <h2 id="call-title">Оставьте номер</h2>
+        <div class="modal-deal">
+            <span class="modal-deal-badge">−10%</span>
+            <p class="modal-deal-text">Зафиксируем скидку 10% для заказа с сайта</p>
+        </div>
         <p class="modal-lead">Перезвоним и согласуем время выезда.</p>
         <div class="form-box">
             <form action="#" method="post" novalidate>
@@ -594,7 +598,7 @@
                     <label for="modal-phone">Номер телефона</label>
                     <input id="modal-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="+7 (___) ___-__-__" required>
                 </div>
-                <button class="btn btn-primary" type="submit">Отправить заявку</button>
+                <button class="btn btn-primary" type="submit">Отправить заявку<span class="btn-off" aria-hidden="true">−10%</span></button>
                 <p class="form-error" hidden></p>
                 <p class="form-note">Нажимая кнопку, вы соглашаетесь с <a href="privacy.html">политикой конфиденциальности</a></p>
             </form>

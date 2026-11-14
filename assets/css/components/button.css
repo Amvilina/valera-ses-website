@@ -12,9 +12,30 @@
     letter-spacing: 0.06em;
     text-transform: uppercase;
     text-decoration: none;
+    position: relative;
+    overflow: visible;
     transition: background-color var(--duration-fast) var(--ease-out),
       color var(--duration-fast) var(--ease-out),
       border-color var(--duration-fast) var(--ease-out);
+  }
+
+  .btn-off {
+    position: absolute;
+    top: -0.55rem;
+    right: -0.5rem;
+    z-index: 1;
+    padding: 0.22rem 0.48rem;
+    border-radius: 999px;
+    font-size: 0.68rem;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    line-height: 1;
+    text-transform: none;
+    color: #fff;
+    background: var(--color-gold);
+    box-shadow: 0 0.2rem 0.55rem color-mix(in oklab, var(--color-gold) 35%, transparent);
+    pointer-events: none;
+    user-select: none;
   }
 
   .btn-primary {
