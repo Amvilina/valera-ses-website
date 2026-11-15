@@ -1,1 +1,4 @@
 *.DS_Store
+.env.cloudflare
+.wrangler/
+workers/**/.wrangler/

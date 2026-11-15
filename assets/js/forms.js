@@ -178,27 +178,19 @@
     const name = form.querySelector('input[name="name"]');
     const tel = form.querySelector('input[type="tel"]');
     const plan = form.querySelector('input[name="plan"]');
-    const body = new URLSearchParams();
-    body.set("Телефон", tel.value.trim());
-    body.set("_subject", "Заявка с сайта ГОС СЭС");
-    body.set("_template", "table");
-    body.set("_captcha", "false");
-    body.set("_honey", "");
-    body.set("Страница", location.href);
-    if (name?.value.trim()) body.set("Имя", name.value.trim());
-    if (plan?.value.trim()) body.set("Услуга", plan.value.trim());
-
-    const response = await fetch(
-      "https://formsubmit.co/ajax/sesmoskovskoyoblasti@gmail.com",
-      {
-        method: "POST",
-        headers: { Accept: "application/json" },
-        body,
-      },
-    );
+    const response = await fetch("https://gos-ses-leads.diatsht.workers.dev/", {
+      method: "POST",
+      headers: { "Content-Type": "application/json", Accept: "application/json" },
+      body: JSON.stringify({
+        phone: tel.value.trim(),
+        name: name?.value.trim() || "",
+        plan: plan?.value.trim() || "",
+        page: location.href,
+      }),
+    });
     const data = await response.json().catch(() => ({}));
-    if (!response.ok || String(data.success) !== "true") {
-      throw new Error(data.message || "");
+    if (!response.ok || data.ok !== true) {
+      throw new Error(data.error || "");
     }
   };
 

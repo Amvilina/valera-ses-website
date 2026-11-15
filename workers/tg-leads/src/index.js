@@ -1,0 +1,149 @@
+/**
+ * Заявки сайта → личные сообщения админам в Telegram.
+ * Секрет: TELEGRAM_BOT_TOKEN
+ * Список чатов: TELEGRAM_ADMIN_IDS=111,222 или константа ADMINS
+ * Для /myid: TELEGRAM_WEBHOOK_SECRET
+ *
+ * POST /         заявка: phone, name?, plan?, page?
+ * POST /webhook  команда /myid отвечает chat id
+ */
+
+import { consumeSlot, json, makeCors } from "../../lib/http.js";
+
+const ALLOWED_ORIGINS = [
+  "https://гос-сэс.рф",
+  "https://www.гос-сэс.рф",
+  "https://xn----etb7amba7f.xn--p1ai",
+  "https://www.xn----etb7amba7f.xn--p1ai",
+  "http://127.0.0.1:8765",
+  "http://localhost:8765",
+];
+
+const MAX_LEADS = 5;
+const ADMINS = [];
+
+export default {
+  async fetch(request, env) {
+    const url = new URL(request.url);
+    const path = url.pathname.replace(/\/+$/, "") || "/";
+    const origin = request.headers.get("Origin") || "";
+    const corsHeaders = makeCors(origin, ALLOWED_ORIGINS);
+
+    if (request.method === "OPTIONS") {
+      return new Response(null, { status: 204, headers: corsHeaders });
+    }
+
+    if (path === "/webhook" && request.method === "POST") {
+      return handleWebhook(request, env);
+    }
+
+    if (request.method !== "POST" || path !== "/") {
+      return json({ ok: false, error: "Method not allowed", code: "method_not_allowed" }, 405, corsHeaders);
+    }
+
+    const admins = adminIds(env);
+    if (!env.TELEGRAM_BOT_TOKEN || admins.length === 0) {
+      return json({ ok: false, error: "Server misconfigured", code: "misconfigured" }, 500, corsHeaders);
+    }
+
+    let data;
+    try {
+      data = await request.json();
+    } catch {
+      return json({ ok: false, error: "Invalid JSON", code: "invalid_json" }, 400, corsHeaders);
+    }
+
+    return handleLead(request, env, data, corsHeaders, admins);
+  },
+};
+
+function adminIds(env) {
+  const fromEnv = String(env.TELEGRAM_ADMIN_IDS || "")
+    .split(",")
+    .map((item) => item.trim())
+    .filter(Boolean);
+  return [...new Set([...ADMINS.map(String), ...fromEnv])];
+}
+
+async function handleLead(request, env, data, corsHeaders, admins) {
+  const lead = parseLead(data);
+  if (!lead) {
+    return json({ ok: false, error: "Invalid lead", code: "validation" }, 400, corsHeaders);
+  }
+
+  const ip = request.headers.get("CF-Connecting-IP") || "unknown";
+  const allowed = await consumeSlot(env.BOT_KV, `lead:${ip}`, Date.now(), MAX_LEADS);
+  if (!allowed) {
+    return json({ ok: false, error: "Too many requests", code: "rate_limited" }, 429, corsHeaders);
+  }
+
+  const text = leadText(lead);
+  for (const chatId of admins) {
+    const sent = await sendTelegram(env.TELEGRAM_BOT_TOKEN, chatId, text);
+    if (!sent.ok) return json(sent.body, sent.status, corsHeaders);
+  }
+  return json({ ok: true }, 200, corsHeaders);
+}
+
+function parseLead(data) {
+  if (!data || typeof data !== "object") return null;
+
+  const phone = String(data.phone || "").replace(/\D/g, "");
+  const digits = phone.startsWith("8") ? `7${phone.slice(1)}` : phone;
+  if (digits.length !== 11 || !digits.startsWith("7")) return null;
+
+  const name = String(data.name || "").trim().slice(0, 80);
+  const plan = String(data.plan || "").trim().slice(0, 80);
+  const page = String(data.page || "").trim().slice(0, 300);
+  return { phone: digits, name, plan, page };
+}
+
+function leadText(lead) {
+  const national = lead.phone.slice(1);
+  const phone = `+7 (${national.slice(0, 3)}) ${national.slice(3, 6)}-${national.slice(6, 8)}-${national.slice(8, 10)}`;
+  const lines = ["Заявка с сайта ГОС СЭС", `Телефон: ${phone}`];
+  if (lead.name) lines.push(`Имя: ${lead.name}`);
+  if (lead.plan) lines.push(`Услуга: ${lead.plan}`);
+  if (lead.page) lines.push(`Страница: ${lead.page}`);
+  return lines.join("\n").slice(0, 4000);
+}
+
+async function sendTelegram(token, chatId, text) {
+  let res;
+  try {
+    res = await fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ chat_id: chatId, text }),
+    });
+  } catch {
+    return { ok: false, status: 502, body: { ok: false, error: "Telegram unavailable", code: "tg_network" } };
+  }
+  if (!res.ok) {
+    return { ok: false, status: 502, body: { ok: false, error: "Telegram failed", code: "tg_failed" } };
+  }
+  return { ok: true };
+}
+
+async function handleWebhook(request, env) {
+  if (env.TELEGRAM_WEBHOOK_SECRET) {
+    const secret = request.headers.get("X-Telegram-Bot-Api-Secret-Token") || "";
+    if (secret !== env.TELEGRAM_WEBHOOK_SECRET) return new Response("forbidden", { status: 403 });
+  }
+
+  let update;
+  try {
+    update = await request.json();
+  } catch {
+    return new Response("ok");
+  }
+
+  const message = update.message;
+  const chatId = message?.chat?.id;
+  const command = String(message?.text || "").trim().split(/\s+/)[0]?.split("@")[0].toLowerCase();
+  if (!chatId || message.from?.is_bot || command !== "/myid") return new Response("ok");
+  if (!env.TELEGRAM_BOT_TOKEN) return new Response("misconfigured", { status: 500 });
+
+  const sent = await sendTelegram(env.TELEGRAM_BOT_TOKEN, chatId, String(chatId));
+  return new Response(sent.ok ? "ok" : "failed", { status: sent.ok ? 200 : 502 });
+}
