@@ -1,0 +1,28 @@
+@layer components {
+  .legal-back {
+    font-weight: 600;
+    font-size: var(--step--1);
+    color: var(--color-ink);
+  }
+
+  .legal-back:hover {
+    color: var(--color-gold);
+  }
+
+  .thanks {
+    padding-block: var(--section-space);
+  }
+
+  .thanks h1 {
+    max-width: 10ch;
+    font-size: clamp(2.4rem, 1.5rem + 3.5vw, 3.6rem);
+    line-height: 1.02;
+  }
+
+  .thanks p {
+    margin-top: 0.9rem;
+    max-width: 18ch;
+    font-size: var(--step-1);
+    color: var(--color-muted);
+  }
+}

@@ -91,7 +91,6 @@
     if (done) done.hidden = true;
     if (error) error.hidden = true;
     if (title) title.textContent = "Оставьте номер";
-    modal.classList.remove("is-thanks");
     modal.querySelector(".modal-deal")?.removeAttribute("hidden");
     modal.querySelector(".modal-lead")?.removeAttribute("hidden");
     const submit = form?.querySelector('[type="submit"]');
@@ -118,16 +117,6 @@
   };
 
   let scrollY = 0;
-
-  const showThanks = () => {
-    if (!modal) return;
-    const title = modal.querySelector("#call-title");
-    if (title) title.textContent = "Спасибо за заявку";
-    modal.classList.add("is-thanks");
-    if (modal.open) return;
-    lockScroll();
-    modal.showModal();
-  };
 
   const openModal = (plan) => {
     if (!modal) return;
@@ -247,14 +236,7 @@
 
       if (error) error.hidden = true;
       if (done) done.hidden = true;
-      if (modal && form.closest("#call")) {
-        form.hidden = true;
-        showThanks();
-        return;
-      }
-      form.reset();
-      clearSending(submit);
-      showThanks();
+      location.href = "spasibo.html";
     });
   });
 })();
