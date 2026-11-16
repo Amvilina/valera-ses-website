@@ -185,6 +185,17 @@
       color: oklch(0.86 0.025 150);
     }
 
+    .hero .field input {
+      color: var(--color-ink);
+      caret-color: var(--color-ink);
+      -webkit-text-fill-color: var(--color-ink);
+    }
+
+    .hero .field input::placeholder {
+      color: var(--color-muted);
+      -webkit-text-fill-color: var(--color-muted);
+    }
+
     .hero .form-note a {
       color: oklch(0.99 0.01 150);
     }

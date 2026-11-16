@@ -119,6 +119,16 @@
 
   let scrollY = 0;
 
+  const showThanks = () => {
+    if (!modal) return;
+    const title = modal.querySelector("#call-title");
+    if (title) title.textContent = "Спасибо за заявку";
+    modal.classList.add("is-thanks");
+    if (modal.open) return;
+    lockScroll();
+    modal.showModal();
+  };
+
   const openModal = (plan) => {
     if (!modal) return;
     resetModalForm();
@@ -236,15 +246,15 @@
       }
 
       if (error) error.hidden = true;
-      form.hidden = true;
+      if (done) done.hidden = true;
       if (modal && form.closest("#call")) {
-        const title = modal.querySelector("#call-title");
-        if (title) title.textContent = "Спасибо за заявку";
-        modal.classList.add("is-thanks");
-        if (done) done.hidden = true;
+        form.hidden = true;
+        showThanks();
         return;
       }
-      if (done) done.hidden = false;
+      form.reset();
+      clearSending(submit);
+      showThanks();
     });
   });
 })();
