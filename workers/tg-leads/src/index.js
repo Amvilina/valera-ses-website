@@ -120,7 +120,14 @@ async function sendTelegram(token, chatId, text) {
     return { ok: false, status: 502, body: { ok: false, error: "Telegram unavailable", code: "tg_network" } };
   }
   if (!res.ok) {
-    return { ok: false, status: 502, body: { ok: false, error: "Telegram failed", code: "tg_failed" } };
+    const body = await res.json().catch(() => ({}));
+    const detail = String(body?.description || "").slice(0, 160);
+    console.log("tg send failed", res.status, detail, "chat", String(chatId));
+    return {
+      ok: false,
+      status: 502,
+      body: { ok: false, error: "Telegram failed", code: "tg_failed", detail: detail || undefined },
+    };
   }
   return { ok: true };
 }
