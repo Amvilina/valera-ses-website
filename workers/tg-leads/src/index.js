@@ -104,8 +104,74 @@ function leadText(lead) {
   const lines = ["Заявка с сайта ГОС СЭС", `Телефон: ${phone}`];
   if (lead.name) lines.push(`Имя: ${lead.name}`);
   if (lead.plan) lines.push(`Услуга: ${lead.plan}`);
-  if (lead.page) lines.push(`Страница: ${lead.page}`);
+  if (lead.page) lines.push(`Страница: ${readablePage(lead.page)}`);
   return lines.join("\n").slice(0, 4000);
+}
+
+function readablePage(page) {
+  let url;
+  try {
+    url = new URL(page);
+  } catch {
+    return page;
+  }
+  const host = url.hostname
+    .split(".")
+    .map((label) => (label.startsWith("xn--") ? decodePunycode(label.slice(4)) : label))
+    .join(".");
+  let path = url.pathname;
+  if (path.endsWith("/index.html")) path = path.slice(0, -"index.html".length) || "/";
+  return `${url.protocol}//${host}${path}${url.search}`;
+}
+
+function decodePunycode(input) {
+  const base = 36;
+  const tMin = 1;
+  const tMax = 26;
+  const skew = 38;
+  const damp = 700;
+  const output = [];
+  const delimiter = input.lastIndexOf("-");
+  if (delimiter > 0) {
+    for (let j = 0; j < delimiter; j++) output.push(input.charCodeAt(j));
+  }
+  let i = 0;
+  let n = 128;
+  let bias = 72;
+  let pos = delimiter > 0 ? delimiter + 1 : 0;
+
+  const adapt = (delta, numPoints, firstTime) => {
+    delta = firstTime ? Math.floor(delta / damp) : delta >> 1;
+    delta += Math.floor(delta / numPoints);
+    let k = 0;
+    while (delta > ((base - tMin) * tMax) >> 1) {
+      delta = Math.floor(delta / (base - tMin));
+      k += base;
+    }
+    return k + Math.floor(((base - tMin + 1) * delta) / (delta + skew));
+  };
+
+  while (pos < input.length) {
+    const oldi = i;
+    let w = 1;
+    for (let k = base; ; k += base) {
+      if (pos >= input.length) return input;
+      const code = input.charCodeAt(pos++);
+      const digit = code >= 48 && code <= 57 ? code - 22 : code >= 65 && code <= 90 ? code - 65 : code >= 97 && code <= 122 ? code - 97 : base;
+      if (digit >= base) return input;
+      i += digit * w;
+      const t = k <= bias ? tMin : k >= bias + tMax ? tMax : k - bias;
+      if (digit < t) break;
+      w *= base - t;
+    }
+    const outLen = output.length + 1;
+    bias = adapt(i - oldi, outLen, oldi === 0);
+    n += Math.floor(i / outLen);
+    i %= outLen;
+    output.splice(i, 0, n);
+    i += 1;
+  }
+  return String.fromCodePoint(...output);
 }
 
 async function sendTelegram(token, chatId, text) {
