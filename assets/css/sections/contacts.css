@@ -53,17 +53,12 @@
     background: var(--color-shot);
   }
 
-  .contacts-map iframe {
+  .contacts-map img {
     display: block;
     width: 100%;
     height: 16rem;
-    border: 0;
-  }
-
-  .contacts-map::after {
-    content: "";
-    position: absolute;
-    inset: 0 3.5rem 2.25rem 0;
+    object-fit: cover;
+    object-position: center;
   }
 
   @media (min-width: 64rem) {
@@ -73,7 +68,7 @@
     }
 
     .contacts-map,
-    .contacts-map iframe {
+    .contacts-map img {
       height: 100%;
       min-height: 22rem;
     }
