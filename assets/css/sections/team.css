@@ -24,6 +24,10 @@
     object-position: 34% 30%;
   }
 
+  .team-card img.is-down {
+    object-position: 0% 0%;
+  }
+
   .team-card figcaption {
     width: calc(100% - 1rem);
     margin: -2.1rem 0.5rem 0;
