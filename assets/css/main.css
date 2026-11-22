@@ -14,6 +14,7 @@
 @import url("./sections/trust.css") layer(components);
 @import url("./sections/pricing.css") layer(components);
 @import url("./sections/process.css") layer(components);
+@import url("./sections/quiz.css") layer(components);
 @import url("./sections/certs.css") layer(components);
 @import url("./sections/reasons.css") layer(components);
 @import url("./sections/lead.css") layer(components);

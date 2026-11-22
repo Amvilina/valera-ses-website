@@ -175,8 +175,9 @@
 
   const sendLead = async (form) => {
     const name = form.querySelector('input[name="name"]');
-    const tel = form.querySelector('input[type="tel"]');
+    const tel = form.querySelector('input[name="phone"]') || form.querySelector('input[type="tel"]');
     const plan = form.querySelector('input[name="plan"]');
+    const note = form.querySelector('input[name="note"]');
     const response = await fetch("https://gos-ses-leads.diatsht.workers.dev/", {
       method: "POST",
       headers: { "Content-Type": "application/json", Accept: "application/json" },
@@ -184,6 +185,7 @@
         phone: tel.value.trim(),
         name: name?.value.trim() || "",
         plan: plan?.value.trim() || "",
+        note: note?.value.trim() || "",
         page: location.href,
       }),
     });
@@ -197,8 +199,9 @@
     form.addEventListener("submit", async (event) => {
       event.preventDefault();
       const name = form.querySelector('input[name="name"]');
-      const tel = form.querySelector('input[type="tel"]');
+      const tel = form.querySelector('input[name="phone"]') || form.querySelector('input[type="tel"]');
       const error = form.querySelector(".form-error");
+      const isQuiz = form.classList.contains("quiz-form");
       const done = form.parentElement.querySelector(".form-done");
 
       if (name && !name.value.trim()) {
@@ -209,6 +212,18 @@
         }
         name.focus();
         return;
+      }
+
+      if (isQuiz) {
+        const consent = form.querySelector('input[name="consent"]');
+        if (consent && !consent.checked) {
+          if (error) {
+            error.hidden = false;
+            error.textContent = "Нужно согласие на обработку данных";
+          }
+          consent.focus();
+          return;
+        }
       }
 
       if (!tel || !isComplete(tel.value)) {

@@ -4,7 +4,7 @@
  * Список чатов: TELEGRAM_ADMIN_IDS=111,222 или константа ADMINS
  * Для /myid: TELEGRAM_WEBHOOK_SECRET
  *
- * POST /         заявка: phone, name?, plan?, page?
+ * POST /         заявка: phone, name?, plan?, page?, note?
  * POST /webhook  команда /myid отвечает chat id
  */
 
@@ -88,22 +88,39 @@ async function handleLead(request, env, data, corsHeaders, admins) {
 function parseLead(data) {
   if (!data || typeof data !== "object") return null;
 
-  const phone = String(data.phone || "").replace(/\D/g, "");
-  const digits = phone.startsWith("8") ? `7${phone.slice(1)}` : phone;
-  if (digits.length !== 11 || !digits.startsWith("7")) return null;
+  const rawPhone = String(data.phone || "").trim().slice(0, 64);
+  const digitsOnly = rawPhone.replace(/\D/g, "");
+  const digits = digitsOnly.startsWith("8") && digitsOnly.length === 11 ? `7${digitsOnly.slice(1)}` : digitsOnly;
+  const phoneOk = digits.length === 11 && digits.startsWith("7");
+  const handle = rawPhone.replace(/\s/g, "");
+  const tgOk = /^@?[A-Za-z][A-Za-z0-9_]{4,31}$/.test(handle);
+  if (!phoneOk && !tgOk) return null;
 
   const name = String(data.name || "").trim().slice(0, 80);
   const plan = String(data.plan || "").trim().slice(0, 80);
   const page = String(data.page || "").trim().slice(0, 300);
-  return { phone: digits, name, plan, page };
+  const note = String(data.note || "").replace(/\r/g, "").trim().slice(0, 700);
+  return {
+    phone: phoneOk ? digits : "",
+    contact: phoneOk ? "" : (handle.startsWith("@") ? handle : `@${handle}`),
+    name,
+    plan,
+    page,
+    note,
+  };
 }
 
 function leadText(lead) {
-  const national = lead.phone.slice(1);
-  const phone = `+7 (${national.slice(0, 3)}) ${national.slice(3, 6)}-${national.slice(6, 8)}-${national.slice(8, 10)}`;
-  const lines = ["Заявка с сайта ГОС СЭС", `Телефон: ${phone}`];
+  const lines = ["Заявка с сайта ГОС СЭС"];
+  if (lead.phone) {
+    const national = lead.phone.slice(1);
+    const phone = `+7 (${national.slice(0, 3)}) ${national.slice(3, 6)}-${national.slice(6, 8)}-${national.slice(8, 10)}`;
+    lines.push(`Телефон: ${phone}`);
+  }
+  if (lead.contact) lines.push(`Telegram: ${lead.contact}`);
   if (lead.name) lines.push(`Имя: ${lead.name}`);
   if (lead.plan) lines.push(`Услуга: ${lead.plan}`);
+  if (lead.note) lines.push(lead.note);
   if (lead.page) lines.push(`Страница: ${readablePage(lead.page)}`);
   return lines.join("\n").slice(0, 4000);
 }
