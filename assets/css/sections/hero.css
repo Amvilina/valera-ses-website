@@ -145,11 +145,7 @@
     width: 100%;
     height: 18rem;
     object-fit: cover;
-    object-position: 78% 50%;
-  }
-
-  .hero-visual.is-start img {
-    object-position: 8% 50%;
+    object-position: 50% 22%;
   }
 
   @media (max-width: 63.99rem) {
