@@ -364,6 +364,137 @@
             </div>
         </section>
 
+        <section class="quiz">
+            <div class="quiz-bg" aria-hidden="true">
+                <img src="assets/img/quiz-treatment.webp" alt="" width="1280" height="720" loading="lazy">
+            </div>
+            <div class="wrap quiz-grid">
+                <div class="quiz-side">
+                    <button class="btn quiz-start" type="button">Рассчитать стоимость</button>
+                    <ul class="quiz-points" role="list">
+                        <li>Официальная СЭС!</li>
+                        <li>Гарантия 3 года!</li>
+                    </ul>
+                </div>
+                <div class="quiz-copy">
+                    <h2>Рассчитайте стоимость<span class="quiz-offer">онлайн - получите скидку</span><span class="quiz-off">10%</span></h2>
+                </div>
+            </div>
+            <div class="wrap quiz-panel is-off">
+                <button class="quiz-back" type="button"><img src="assets/img/quiz/back.svg" alt="" width="24" height="24">Назад</button>
+                <div class="quiz-step">
+                    <h3 tabindex="-1">Какая у вас проблема?</h3>
+                    <div class="quiz-options">
+                        <button class="quiz-option" type="button" data-quiz-value="Насекомые">
+                            <img src="assets/img/quiz/bug.svg" alt="" width="48" height="48">
+                            <span>Насекомые</span>
+                        </button>
+                        <button class="quiz-option" type="button" data-quiz-value="Грызуны">
+                            <img src="assets/img/quiz/rodent.svg" alt="" width="48" height="48">
+                            <span>Грызуны</span>
+                        </button>
+                        <button class="quiz-option" type="button" data-quiz-value="Запах">
+                            <img src="assets/img/quiz/smell.svg" alt="" width="48" height="48">
+                            <span>Запах</span>
+                        </button>
+                        <button class="quiz-option" type="button" data-quiz-value="Плесень">
+                            <img src="assets/img/quiz/mold.svg" alt="" width="48" height="48">
+                            <span>Плесень</span>
+                        </button>
+                        <button class="quiz-option" type="button" data-quiz-value="Другое">
+                            <img src="assets/img/quiz/other.svg" alt="" width="48" height="48">
+                            <span>Другое</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="quiz-step is-off">
+                    <h3 tabindex="-1">Где необходимо произвести обработку?</h3>
+                    <div class="quiz-options">
+                        <button class="quiz-option" type="button" data-quiz-value="Квартира">
+                            <img src="assets/img/quiz/flat.svg" alt="" width="48" height="48">
+                            <span>Квартира</span>
+                        </button>
+                        <button class="quiz-option" type="button" data-quiz-value="Дом">
+                            <img src="assets/img/quiz/house.svg" alt="" width="48" height="48">
+                            <span>Дом</span>
+                        </button>
+                        <button class="quiz-option" type="button" data-quiz-value="Участок">
+                            <img src="assets/img/quiz/plot.svg" alt="" width="48" height="48">
+                            <span>Участок</span>
+                        </button>
+                        <button class="quiz-option" type="button" data-quiz-value="Коммерческое помещение">
+                            <img src="assets/img/quiz/shop.svg" alt="" width="48" height="48">
+                            <span>Коммерческое помещение</span>
+                        </button>
+                        <button class="quiz-option" type="button" data-quiz-value="Другое">
+                            <img src="assets/img/quiz/other.svg" alt="" width="48" height="48">
+                            <span>Другое</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="quiz-step is-off">
+                    <h3 tabindex="-1">Как быстро требуется обработка?</h3>
+                    <div class="quiz-options">
+                        <button class="quiz-option" type="button" data-quiz-value="Срочно — сегодня">
+                            <img src="assets/img/quiz/clock.svg" alt="" width="48" height="48">
+                            <span>Срочно — сегодня</span>
+                        </button>
+                        <button class="quiz-option" type="button" data-quiz-value="В ближайшие 2–3 дня">
+                            <img src="assets/img/quiz/calendar.svg" alt="" width="48" height="48">
+                            <span>В ближайшие 2–3 дня</span>
+                        </button>
+                        <button class="quiz-option" type="button" data-quiz-value="В течение недели">
+                            <img src="assets/img/quiz/week.svg" alt="" width="48" height="48">
+                            <span>В течение недели</span>
+                        </button>
+                        <button class="quiz-option" type="button" data-quiz-value="Другое">
+                            <img src="assets/img/quiz/other.svg" alt="" width="48" height="48">
+                            <span>Другое</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="quiz-step is-off">
+                    <h3 tabindex="-1">Уже пробовали бороться с проблемой?</h3>
+                    <div class="quiz-options">
+                        <button class="quiz-option" type="button" data-quiz-value="Да, самостоятельно, но без результата">
+                            <img src="assets/img/quiz/self.svg" alt="" width="48" height="48">
+                            <span>Да, самостоятельно, но без результата</span>
+                        </button>
+                        <button class="quiz-option" type="button" data-quiz-value="Да, вызывали других специалистов — не помогло">
+                            <img src="assets/img/quiz/specialists.svg" alt="" width="48" height="48">
+                            <span>Да, вызывали других специалистов — не помогло</span>
+                        </button>
+                        <button class="quiz-option" type="button" data-quiz-value="Нет, сразу к профессионалам">
+                            <img src="assets/img/quiz/shield.svg" alt="" width="48" height="48">
+                            <span>Нет, сразу к профессионалам</span>
+                        </button>
+                    </div>
+                </div>
+                <form class="quiz-form quiz-step is-off" action="#" method="post" novalidate>
+                    <h3 tabindex="-1">Куда отправить расчёт?</h3>
+                    <input type="hidden" name="note" value="">
+                    <div class="quiz-body">
+                    <div class="quiz-fields">
+                        <div class="field">
+                            <label for="quiz-phone">Номер телефона</label>
+                            <input id="quiz-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" maxlength="18" placeholder="+7 (___) ___-__-__" required>
+                        </div>
+                        <div class="field">
+                            <label for="quiz-name">Ваше имя</label>
+                            <input id="quiz-name" name="name" type="text" autocomplete="name" required>
+                        </div>
+                    </div>
+                    <label class="quiz-consent">
+                        <input type="checkbox" name="consent">
+                        <span>Я согласен(-на) на обработку <a href="privacy.html">персональных данных</a> и с <a href="privacy.html">политикой конфиденциальности</a></span>
+                    </label>
+                    <p class="form-error" hidden></p>
+                    <button class="btn btn-primary" type="submit">Отправить</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+
         <section class="lead" id="lead">
             <div class="wrap lead-grid">
                 <h2>Заполните форму и зафиксируйте скидку <span class="lead-off">10%</span></h2>
@@ -637,6 +768,7 @@
     <script src="assets/js/media.js"></script>
     <script src="assets/js/nav.js" defer></script>
     <script src="assets/js/forms.js" defer></script>
+    <script src="assets/js/quiz.js" defer></script>
     <script src="assets/js/certs.js" defer></script>
 </body>
 </html>
