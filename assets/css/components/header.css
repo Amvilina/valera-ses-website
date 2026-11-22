@@ -19,6 +19,7 @@
 
   .site-logo,
   .header-meta,
+  .header-social,
   .header-phone,
   .header-end .btn,
   .nav-burger {
@@ -51,6 +52,12 @@
 
   .header-end {
     display: contents;
+  }
+
+  .header-mid {
+    display: flex;
+    align-items: center;
+    gap: 1.35rem;
   }
 
   .header-meta {
@@ -103,7 +110,7 @@
     Порядок при сужении окна:
     1) меню → бургер
     2) 11 лет / 2400 клиентов
-    3) Москва / 24/7
+    3) соцсети
     4) кнопка
     5) телефон
 
@@ -130,17 +137,46 @@
     }
   }
 
+  .header-social {
+    display: flex;
+    align-items: center;
+    align-self: center;
+    gap: 1rem;
+  }
+
+  .header-social a {
+    display: grid;
+    place-items: center;
+    width: 2.15rem;
+    height: 2.15rem;
+  }
+
+  .header-social img {
+    display: block;
+    width: 2.15rem;
+    height: 2.15rem;
+    transition: opacity var(--duration-mid) var(--ease-out);
+  }
+
+  .header-social a:hover img {
+    opacity: 0.82;
+  }
+
+  .header-end .header-social {
+    display: none;
+  }
+
   @media (min-width: 48rem) {
-    .header-end .is-place {
-      display: grid;
+    .header-end .header-social {
+      display: flex;
     }
 
-    .nav-modal-end .is-place {
+    .nav-modal-end .header-social {
       display: none;
     }
   }
 
-  @media (min-width: 60rem) {
+  @media (min-width: 62rem) {
     .header-end .is-stats {
       display: grid;
     }
