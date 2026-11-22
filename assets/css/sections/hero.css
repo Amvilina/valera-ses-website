@@ -28,6 +28,23 @@
     max-width: 22ch;
   }
 
+  .hero-place {
+    display: grid;
+    justify-items: start;
+    gap: 0.45rem;
+    margin-top: 0.85rem;
+    font-size: var(--step-2);
+    font-weight: 700;
+    line-height: 1.1;
+  }
+
+  .hero-place::before {
+    content: "";
+    width: min(100%, 18rem);
+    height: 2px;
+    background: var(--color-gold);
+  }
+
   .hero-license {
     margin-top: var(--space-3);
     font-size: var(--step--1);
@@ -50,9 +67,17 @@
   }
 
   .hero-price {
-    margin-top: var(--space-4);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.35rem 1.75rem;
+    margin-top: var(--space-3);
     font-size: var(--step-2);
     font-weight: 700;
+  }
+
+  .hero-price-sum,
+  .hero-guarantee {
     color: var(--color-gold);
   }
 
@@ -173,8 +198,15 @@
     }
 
     .hero-price {
-      width: fit-content;
+      width: auto;
       margin: 0;
+      padding: 0;
+      background: none;
+    }
+
+    .hero-price-sum,
+    .hero-guarantee {
+      width: fit-content;
       padding: 0.12em 0.45em 0.14em;
       background: var(--color-gold);
       color: var(--color-accent-fg);
