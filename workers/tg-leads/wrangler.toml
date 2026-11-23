@@ -3,3 +3,13 @@ main = "src/index.js"
 compatibility_date = "2026-11-10"
 account_id = "ee7eecdc617349c774ae142eb55e0015"
 workers_dev = true
+
+[observability]
+enabled = true
+head_sampling_rate = 1
+
+[observability.logs]
+enabled = true
+invocation_logs = true
+head_sampling_rate = 1
+persist = true
