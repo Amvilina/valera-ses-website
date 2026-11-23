@@ -1,0 +1,67 @@
+@layer components {
+  .cookie {
+    position: fixed;
+    z-index: 50;
+    left: 50%;
+    bottom: 1rem;
+    translate: -50% 0;
+    width: min(18rem, calc(100% - 1.5rem));
+    margin: 0;
+    padding: 0.55rem 1.6rem 0.55rem 0.7rem;
+    background: var(--color-surface);
+    color: var(--color-ink);
+    border: 1px solid color-mix(in oklab, var(--color-gold) 38%, var(--color-border));
+    border-radius: var(--radius-s);
+    box-shadow: 0 0.8rem 2rem oklch(0.28 0.04 90 / 0.16);
+  }
+
+  .cookie p {
+    margin: 0;
+    font-size: 0.82rem;
+    line-height: 1.25;
+  }
+
+  .cookie a {
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.18em;
+    text-decoration-color: color-mix(in oklab, var(--color-gold) 70%, var(--color-border));
+  }
+
+  .cookie a:hover {
+    color: var(--color-gold);
+    text-decoration-color: var(--color-gold);
+  }
+
+  .cookie-x {
+    position: absolute;
+    top: 0.15rem;
+    right: 0.15rem;
+    width: 1.35rem;
+    height: 1.35rem;
+    color: var(--color-ink);
+  }
+
+  .cookie-x::before,
+  .cookie-x::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0.35rem;
+    right: 0.35rem;
+    height: 1.5px;
+    background: currentColor;
+  }
+
+  .cookie-x::before {
+    rotate: 45deg;
+  }
+
+  .cookie-x::after {
+    rotate: -45deg;
+  }
+
+  .cookie-x:hover {
+    color: var(--color-gold);
+  }
+}

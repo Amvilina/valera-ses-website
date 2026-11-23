@@ -10,6 +10,7 @@
 @import url("./components/nav.css") layer(components);
 @import url("./components/footer.css") layer(components);
 @import url("./components/modal.css") layer(components);
+@import url("./components/cookie.css") layer(components);
 @import url("./sections/hero.css") layer(components);
 @import url("./sections/trust.css") layer(components);
 @import url("./sections/pricing.css") layer(components);
