@@ -178,7 +178,7 @@
     const tel = form.querySelector('input[name="phone"]') || form.querySelector('input[type="tel"]');
     const plan = form.querySelector('input[name="plan"]');
     const note = form.querySelector('input[name="note"]');
-    const response = await fetch("https://gos-ses-leads.diatsht.workers.dev/", {
+    const response = await fetch("https://namaste-smolensk.ru/api/lead/ses", {
       method: "POST",
       headers: { "Content-Type": "application/json", Accept: "application/json" },
       body: JSON.stringify({
